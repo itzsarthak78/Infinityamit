@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Infinityamit – Premium Learning Platform</title>
+    <meta name="description" content="Infinityamit offers premium courses with video lectures and downloadable notes. Learn at your own pace with our advanced video player." />
+    <link rel="canonical" href="https://infinityamit.verce.app/" />
+    <meta property="og:title" content="Infinityamit – Premium Learning Platform" />
+    <meta property="og:description" content="Access high-quality courses with video lectures and notes. Built for serious learners." />
+    <meta property="og:url" content="https://infinityamit.verce.app/" />
+    <meta name="theme-color" content="#0f0f1a" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ----- RESET & BASE ----- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0f0f1a;
+            --navy-light: #1a1a2e;
+            --navy-mid: #252540;
+            --gold: #c9a84c;
+            --gold-light: #e8d5a3;
+            --gold-glow: rgba(201, 168, 76, 0.25);
+            --cream: #f8f6f0;
+            --cream-dark: #ede9df;
+            --white: #ffffff;
+            --gray-100: #f3f1ec;
+            --gray-200: #e5e2d9;
+            --gray-300: #ccc7bb;
+            --gray-400: #9a958a;
+            --gray-500: #7a756a;
+            --gray-600: #5a554a;
+            --gray-700: #3d3a32;
+            --gray-800: #2a2822;
+            --shadow: 0 8px 32px rgba(15, 15, 26, 0.12);
+            --shadow-hover: 0 16px 48px rgba(15, 15, 26, 0.18);
+            --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --nav-height: 72px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--gray-800);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            border: none;
+            background: none;
+        }
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ----- SCROLLBAR ----- */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-light);
+        }
+
+        /* ----- UTILITY ----- */
+        .text-gold {
+            color: var(--gold);
+        }
+        .bg-gold {
+            background: var(--gold);
+        }
+        .bg-navy {
+            background: var(--navy);
+        }
+        .text-center {
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2.6rem;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            line-height: 1.15;
+        }
+        .section-title span {
+            color: var(--gold);
+        }
+        .section-sub {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            font-weight: 400;
+            max-width: 640px;
+            margin: 0 auto 0 0;
+        }
+        .section-sub.center {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* ----- BUTTONS ----- */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 32px;
+            border-radius: 50px;
+            transition: all var(--transition);
+            box-shadow: 0 4px 16px var(--gold-glow);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: #dbb95c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px var(--gold-glow);
+        }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 12px 28px;
+            border-radius: 50px;
+            transition: all var(--transition);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--navy-light);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 32px;
+            border-radius: 50px;
+            transition: all var(--transition);
+        }
+        .btn-secondary:hover {
+            background: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(15, 15, 26, 0.2);
+        }
+        .btn-sm {
+            padding: 8px 18px;
+            font-size: 0.8rem;
+        }
+
+        /* ============================================================
+                   HEADER / NAVBAR (mobile-first)
+                   ============================================================ */
+        .header {
+            background: var(--navy);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(15, 15, 26, 0.4);
+            border-bottom: 2px solid var(--gold);
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            flex-shrink: 0;
+            z-index: 1001;
+        }
+        .logo span {
+            color: var(--gold);
+        }
+
+        /* ---- Hamburger ---- */
+        .nav-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            z-index: 1001;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+        .nav-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--white);
+            border-radius: 4px;
+            transition: all var(--transition);
+            transform-origin: center;
+        }
+        .nav-toggle.open span:nth-child(1) {
+            transform: translateY(9.5px) rotate(45deg);
+        }
+        .nav-toggle.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .nav-toggle.open span:nth-child(3) {
+            transform: translateY(-9.5px) rotate(-45deg);
+        }
+
+        /* ---- Nav links (mobile hidden) ---- */
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 360px;
+            height: 100vh;
+            background: var(--navy-light);
+            padding: 80px 32px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: right 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: -8px 0 40px rgba(0, 0, 0, 0.5);
+            border-left: 2px solid var(--gold);
+            overflow-y: auto;
+        }
+        .nav-links.open {
+            right: 0;
+        }
+
+        .nav-links a {
+            color: var(--gray-200);
+            font-size: 1.15rem;
+            font-weight: 500;
+            padding: 14px 16px;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition);
+            border-left: 3px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .nav-links a i {
+            width: 24px;
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+        .nav-links a:hover {
+            background: rgba(201, 168, 76, 0.08);
+            border-left-color: var(--gold);
+            color: var(--white);
+        }
+
+        /* overlay */
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            backdrop-filter: blur(4px);
+        }
+        .nav-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* ---- Desktop nav ---- */
+        @media (min-width: 769px) {
+            .nav-toggle {
+                display: none;
+            }
+            .nav-links {
+                position: static;
+                width: auto;
+                height: auto;
+                background: transparent;
+                padding: 0;
+                flex-direction: row;
+                gap: 4px;
+                box-shadow: none;
+                border-left: none;
+                overflow-y: visible;
+            }
+            .nav-links a {
+                font-size: 0.95rem;
+                padding: 8px 18px;
+                border-left: none;
+                border-bottom: 2px solid transparent;
+                border-radius: 0;
+            }
+            .nav-links a i {
+                display: none;
+            }
+            .nav-links a:hover {
+                background: transparent;
+                border-left: none;
+                border-bottom-color: var(--gold);
+            }
+            .nav-overlay {
+                display: none !important;
+            }
+        }
+
+        /* ============================================================
+                   HERO
+                   ============================================================ */
+        .hero {
+            padding: 48px 0 40px;
+            background: linear-gradient(165deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-bottom: 4px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+            opacity: 0.25;
+            pointer-events: none;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .hero-content {
+            flex: 1 1 400px;
+        }
+        .hero-content .hero-badge {
+            display: inline-block;
+            background: rgba(201, 168, 76, 0.15);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            color: var(--gold-light);
+            font-size: 0.75rem;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-weight: 500;
+            margin-bottom: 14px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2.8rem;
+            color: var(--white);
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+        .hero-content h1 span {
+            color: var(--gold);
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--gray-200);
+            max-width: 480px;
+            margin-bottom: 24px;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+        .hero-stats .stat-item {
+            text-align: left;
+        }
+        .hero-stats .number {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--gold);
+            display: block;
+            line-height: 1.2;
+        }
+        .hero-stats .label {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 500;
+        }
+        .hero-omega {
+            flex: 0 0 80px;
+            text-align: center;
+            color: var(--gold-light);
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            opacity: 0.25;
+            line-height: 1;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 36px 0 32px;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-stats .stat-item {
+                text-align: center;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .hero-omega {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .hero-stats {
+                gap: 20px;
+            }
+            .hero-stats .number {
+                font-size: 1.5rem;
+            }
+            .hero-actions .btn-primary,
+            .hero-actions .btn-secondary {
+                padding: 12px 24px;
+                font-size: 0.85rem;
+                width: 100%;
+                justify-content: center;
+            }
+            .hero-actions {
+                width: 100%;
+            }
+        }
+
+        /* ============================================================
+                   COURSE GRID (Banner 16:9)
+                   ============================================================ */
+        .courses-section {
+            padding: 56px 0 64px;
+        }
+        .courses-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+        .courses-header .section-title {
+            margin-bottom: 0;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .course-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all var(--transition);
+            border: 1px solid var(--gray-200);
+            display: flex;
+            flex-direction: column;
+        }
+        .course-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--gold);
+        }
+        .course-card .banner {
+            aspect-ratio: 16 / 9;
+            background: var(--navy-light);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .course-card .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .course-card .banner .placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--gold-light);
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        .course-card .body {
+            padding: 20px 22px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .course-card .body h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        .course-card .body .meta {
+            display: flex;
+            gap: 18px;
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            margin-top: 6px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .course-card .body .meta i {
+            color: var(--gold);
+            width: 16px;
+        }
+        .course-card .body .btn-primary {
+            align-self: flex-start;
+            padding: 10px 24px;
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--white);
+            border-radius: var(--radius);
+            border: 2px dashed var(--gray-200);
+        }
+        .empty-state h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--gray-600);
+        }
+        .empty-state p {
+            color: var(--gray-400);
+            margin-top: 6px;
+        }
+
+        @media (max-width: 640px) {
+            .course-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .course-card .body {
+                padding: 14px 16px 18px;
+            }
+            .course-card .body h3 {
+                font-size: 1rem;
+            }
+            .course-card .body .meta {
+                font-size: 0.7rem;
+                gap: 12px;
+            }
+            .course-card .body .btn-primary {
+                padding: 8px 18px;
+                font-size: 0.75rem;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .course-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* ============================================================
+                   WHY USE US & OUR VISION
+                   ============================================================ */
+        .info-section {
+            padding: 64px 0 56px;
+            background: var(--white);
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .info-section .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px 64px;
+        }
+        .info-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .info-block h2 span {
+            color: var(--gold);
+        }
+        .info-block p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 14px;
+        }
+        .info-block ul {
+            margin-top: 8px;
+        }
+        .info-block ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray-100);
+            color: var(--gray-700);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .info-block ul li:last-child {
+            border-bottom: none;
+        }
+        .info-block ul li i {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+            width: 20px;
+            text-align: center;
+        }
+        .info-block ul li strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .vision-block {
+            background: var(--navy);
+            padding: 32px 36px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--gold);
+            box-shadow: var(--shadow-dark);
+            align-self: start;
+        }
+        .vision-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 14px;
+        }
+        .vision-block h2 span {
+            color: var(--gold);
+        }
+        .vision-block p {
+            color: var(--gray-200);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .vision-block p:last-child {
+            margin-bottom: 0;
+        }
+        .vision-block .highlight {
+            color: var(--gold-light);
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .info-section .container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .vision-block {
+                padding: 28px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .info-section {
+                padding: 40px 0 36px;
+            }
+            .info-block h2 {
+                font-size: 1.5rem;
+            }
+            .vision-block h2 {
+                font-size: 1.4rem;
+            }
+            .vision-block {
+                padding: 20px 18px;
+            }
+            .info-block ul li {
+                font-size: 0.85rem;
+                padding: 8px 0;
+                gap: 10px;
+            }
+        }
+
+        /* ============================================================
+                   FOOTER
+                   ============================================================ */
+        .footer {
+            background: var(--navy);
+            color: var(--gray-400);
+            padding: 36px 0 24px;
+            border-top: 2px solid var(--gold);
+        }
+        .footer .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px 24px;
+        }
+        .footer .logo-sm {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--white);
+        }
+        .footer .logo-sm span {
+            color: var(--gold);
+        }
+        .footer .sarthak-credit {
+            font-size: 0.9rem;
+        }
+        .footer .sarthak-credit a {
+            color: var(--gold);
+            font-weight: 600;
+            transition: color var(--transition);
+        }
+        .footer .sarthak-credit a:hover {
+            color: var(--gold-light);
+            text-decoration: underline;
+        }
+        .footer .copy {
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 640px) {
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+            .footer .logo-sm {
+                font-size: 1.1rem;
+            }
+            .footer .copy {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* ============================================================
+                   VIDEO OVERLAY (for the player)
+                   ============================================================ */
+        .video-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 15, 26, 0.94);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            backdrop-filter: blur(8px);
+        }
+        .video-overlay.open {
+            display: flex;
+        }
+        .video-overlay .modal {
+            background: var(--navy);
+            border-radius: var(--radius);
+            max-width: 920px;
+            width: 100%;
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+        .video-overlay .modal .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            color: var(--white);
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: transform var(--transition);
+            background: rgba(0, 0, 0, 0.6);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .video-overlay .modal .close-btn:hover {
+            transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .video-overlay .modal .video-title {
+            padding: 12px 20px 4px;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            background: rgba(15, 15, 26, 0.5);
+        }
+        .video-overlay .modal .video-wrapper {
+            position: relative;
+            padding-top: 56.25%;
+            background: #000;
+        }
+        .video-overlay .modal .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            outline: none;
+        }
+        .video-overlay .modal .video-controls {
+            background: rgba(15, 15, 26, 0.96);
+            padding: 10px 16px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .video-overlay .modal .video-controls button {
+            color: var(--white);
+            font-size: 1rem;
+            transition: color var(--transition);
+            background: none;
+            padding: 4px 6px;
+            border-radius: 4px;
+        }
+        .video-overlay .modal .video-controls button:hover {
+            color: var(--gold);
+        }
+        .video-overlay .modal .video-controls .time {
+            color: var(--gray-400);
+            font-size: 0.75rem;
+            font-weight: 400;
+            min-width: 80px;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+        .video-overlay .modal .video-controls .progress-wrap {
+            flex: 1;
+            min-width: 80px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+        }
+        .video-overlay .modal .video-controls .progress-wrap .bar {
+            height: 100%;
+            width: 0%;
+            background: var(--gold);
+            border-radius: 4px;
+            transition: width 0.1s linear;
+        }
+        .video-overlay .modal .video-controls .speed-group {
+            display: flex;
+            gap: 3px;
+            margin-left: 2px;
+        }
+        .video-overlay .modal .video-controls .speed-group button {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--gray-400);
+            padding: 2px 7px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid transparent;
+            transition: all var(--transition);
+        }
+        .video-overlay .modal .video-controls .speed-group button:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .video-overlay .modal .video-controls .speed-group button.active {
+            color: var(--gold);
+            border-color: var(--gold);
+            background: rgba(201, 168, 76, 0.12);
+        }
+
+        @media (max-width: 600px) {
+            .video-overlay {
+                padding: 8px;
+            }
+            .video-overlay .modal .video-controls {
+                padding: 8px 12px 10px;
+                gap: 6px;
+            }
+            .video-overlay .modal .video-controls button {
+                font-size: 0.85rem;
+                padding: 2px 4px;
+            }
+            .video-overlay .modal .video-controls .time {
+                font-size: 0.65rem;
+                min-width: 60px;
+            }
+            .video-overlay .modal .video-controls .speed-group button {
+                font-size: 0.5rem;
+                padding: 1px 5px;
+            }
+            .video-overlay .modal .close-btn {
+                width: 34px;
+                height: 34px;
+                font-size: 1.2rem;
+                top: 8px;
+                right: 10px;
+            }
+            .video-overlay .modal .video-title {
+                font-size: 0.8rem;
+                padding: 8px 14px 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- HEADER / NAVBAR -->
+    <!-- ============================================================ -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="/" class="logo">Infinity<span>amit</span></a>
+
+            <!-- Hamburger Toggle -->
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <nav class="nav-links" id="navLinks">
+                <a href="/"><i class="fas fa-home"></i> Home</a>
+                <a href="/courses.html"><i class="fas fa-graduation-cap"></i> Courses</a>
+            </nav>
+
+            <!-- Overlay -->
+            <div class="nav-overlay" id="navOverlay"></div>
+        </div>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- HERO -->
+    <!-- ============================================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fas fa-star" style="margin-right:6px;"></i> Premium Learning</span>
+                <h1>Learn with <span>Infinityamit</span></h1>
+                <p>Access high-quality courses with video lectures and downloadable notes. Built for serious learners who want to master new skills.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="number" id="courseCount">0</span>
+                        <span class="label">Courses</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number" id="lectureCount">0</span>
+                        <span class="label">Lectures</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number" id="noteCount">0</span>
+                        <span class="label">Notes</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#coursesSection" class="btn-primary"><i class="fas fa-arrow-right"></i> Explore Courses</a>
+                </div>
+            </div>
+            <div class="hero-omega">∞</div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- WHY USE US & OUR VISION -->
+    <!-- ============================================================ -->
+    <section class="info-section">
+        <div class="container">
+
+            <!-- Why Use Us -->
+            <div class="info-block">
+                <h2>Why Use <span>Infinityamit</span>?</h2>
+                <p>
+                    Infinityamit is not just another course platform. It is a thoughtfully crafted ecosystem
+                    designed to make learning seamless, engaging, and truly effective. Here is why learners
+                    and creators choose us:
+                </p>
+                <ul>
+                    <li>
+                        <i class="fas fa-video"></i>
+                        <div><strong>HD Video Lectures</strong> – Watch crystal-clear lectures with our
+                        advanced player that supports speed control, skip forward/backward, and smooth
+                        streaming. No buffering, no distractions.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-file-pdf"></i>
+                        <div><strong>Downloadable Notes</strong> – Every course comes with structured,
+                        chapter-wise notes in PDF format. Download them and study offline, anytime,
+                        anywhere.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-mobile-alt"></i>
+                        <div><strong>Mobile-First Design</strong> – Learn on the go. Our platform is
+                        fully responsive and works flawlessly on your phone, tablet, or desktop.
+                        No compromises.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <div><strong>Easy Content Management</strong> – Course creators can upload
+                        banners, add lectures with video URLs, and attach PDF notes through a clean,
+                        intuitive admin panel. No coding required.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-shield-alt"></i>
+                        <div><strong>Secure & Reliable</strong> – Built with Firebase backend, all your
+                        data is stored securely. Your learning progress and content are always safe
+                        and accessible.</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-rocket"></i>
+                        <div><strong>Fast & Optimized</strong> – Lightning-fast page loads, lazy-loaded
+                        images, and optimized assets ensure you spend less time waiting and more time
+                        learning.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Our Vision -->
+            <div class="vision-block">
+                <h2>Our <span>Vision</span></h2>
+                <p>
+                    At <span class="highlight">Infinityamit</span>, we envision a world where quality
+                    education is not a privilege but a right. We believe that learning should be
+                    <span class="highlight">boundless</span> – unconstrained by geography, time, or
+                    financial barriers.
+                </p>
+                <p>
+                    Our mission is to build a <span class="highlight">global learning ecosystem</span>
+                    where every individual can access world-class courses, taught by passionate
+                    educators, and supported by a community that thrives on curiosity and growth.
+                </p>
+                <p>
+                    We are committed to <span class="highlight">constant innovation</span> – integrating
+                    the latest technologies to make learning more interactive, personalized, and
+                    impactful. From AI-driven recommendations to immersive video experiences, we are
+                    just getting started.
+                </p>
+                <p style="margin-top:16px; font-style:italic; color:var(--gold-light);">
+                    <i class="fas fa-quote-left" style="margin-right:8px; opacity:0.6;"></i>
+                    Empowering minds, one lecture at a time.
+                    <i class="fas fa-quote-right" style="margin-left:8px; opacity:0.6;"></i>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- COURSE GRID -->
+    <!-- ============================================================ -->
+    <section class="courses-section" id="coursesSection">
+        <div class="container">
+            <div class="courses-header">
+                <div>
+                    <h2 class="section-title">All <span>Courses</span></h2>
+                    <p class="section-sub">Explore our curated collection of premium courses.</p>
+                </div>
+                <a href="/courses.html" class="btn-outline btn-sm">
+                    <i class="fas fa-arrow-right"></i> View All
+                </a>
+            </div>
+            <div class="course-grid" id="courseGrid">
+                <!-- Dynamically rendered -->
+                <div class="empty-state">
+                    <h3>Loading courses...</h3>
+                    <p>Please wait while we fetch the latest content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="logo-sm">Infinity<span>amit</span></div>
+            <div class="sarthak-credit">
+                Developed by <a href="mailto:sarthak.dev@tuta.io">Sarthak</a>
+                <i class="fas fa-heart" style="color:var(--gold); font-size:0.7rem; margin-left:4px;"></i>
+            </div>
+            <div class="copy">&copy; 2026 Infinityamit. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- VIDEO OVERLAY (for player) -->
+    <!-- ============================================================ -->
+    <div class="video-overlay" id="videoOverlay">
+        <div class="modal">
+            <button class="close-btn" id="closeVideo"><i class="fas fa-times"></i></button>
+            <div class="video-title" id="videoTitle">Lecture</div>
+            <div class="video-wrapper">
+                <video id="videoPlayer" src="" preload="metadata" playsinline></video>
+            </div>
+            <div class="video-controls">
+                <button id="playBtn" title="Play / Pause"><i class="fas fa-play"></i></button>
+                <button id="skipBackBtn" title="Skip back 10s"><i class="fas fa-backward"></i> 10</button>
+                <button id="skipForwardBtn" title="Skip forward 10s">10 <i class="fas fa-forward"></i></button>
+                <span class="time" id="timeDisplay">0:00 / 0:00</span>
+                <div class="progress-wrap" id="progressWrap">
+                    <div class="bar" id="progressBar"></div>
+                </div>
+                <div class="speed-group">
+                    <button data-speed="0.75">0.75x</button>
+                    <button data-speed="1" class="active">1x</button>
+                    <button data-speed="1.25">1.25x</button>
+                    <button data-speed="1.5">1.5x</button>
+                    <button data-speed="2">2x</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SCRIPTS -->
+    <!-- ============================================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@0.14.17/dist/hls.min.js">
+    </script>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "firebase/app": "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js",
+                "firebase/firestore": "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js",
+                "firebase/storage": "https://www.gstatic.com/firebasejs/10.14.0/firebase-storage.js"
+            }
+        }
+    </script>
+
+    <script type="module">
+        // ----- Firebase -----
+        import { initializeApp } from 'firebase/app';
+        import { getFirestore, collection, query, orderBy, getDocs } from 'firebase/firestore';
+
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA63VMF7C_qxwqAJ7r-4LHBV-u7NY4_45o",
+            authDomain: "infinityamit-583b2.firebaseapp.com",
+            projectId: "infinityamit-583b2",
+            storageBucket: "infinityamit-583b2.firebasestorage.app",
+            messagingSenderId: "895503707512",
+            appId: "1:895503707512:web:c4abd1a1d768b37c4b6c8d"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // ---------- DOM refs ----------
+        const courseGrid = document.getElementById('courseGrid');
+        const courseCountEl = document.getElementById('courseCount');
+        const lectureCountEl = document.getElementById('lectureCount');
+        const noteCountEl = document.getElementById('noteCount');
+
+        // ---------- Video Player ----------
+        const overlay = document.getElementById('videoOverlay');
+        const video = document.getElementById('videoPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const skipBack = document.getElementById('skipBackBtn');
+        const skipForward = document.getElementById('skipForwardBtn');
+        const timeDisplay = document.getElementById('timeDisplay');
+        const progressWrap = document.getElementById('progressWrap');
+        const progressBar = document.getElementById('progressBar');
+        const closeBtn = document.getElementById('closeVideo');
+        const titleEl = document.getElementById('videoTitle');
+        const speedBtns = document.querySelectorAll('.speed-group button');
+
+        let hlsInstance = null;
+        let isPlaying = false;
+
+        function formatTime(seconds) {
+            if (!seconds || isNaN(seconds)) return '0:00';
+            const m = Math.floor(seconds / 60);
+            const s = Math.floor(seconds % 60);
+            return `${m}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function togglePlay() {
+            if (video.paused) {
+                video.play().catch(() => {});
+                isPlaying = true;
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                video.pause();
+                isPlaying = false;
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+
+        function openVideo(url, title) {
+            if (!url) { alert('No video URL.'); return; }
+            titleEl.textContent = title || 'Lecture';
+            overlay.classList.add('open');
+
+            if (hlsInstance) { hlsInstance.destroy();
+                hlsInstance = null; }
+
+            if (url.includes('.m3u8') || url.includes('m3u8')) {
+                if (Hls && Hls.isSupported()) {
+                    hlsInstance = new Hls({ enableWorker: true, lowLatencyMode: true });
+                    hlsInstance.loadSource(url);
+                    hlsInstance.attachMedia(video);
+                    hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
+                        video.play().catch(() => {});
+                        isPlaying = true;
+                        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    });
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = url;
+                    video.play().catch(() => {});
+                    isPlaying = true;
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    alert('HLS not supported.');
+                }
+            } else {
+                video.src = url;
+                video.load();
+                video.play().catch(() => {});
+                isPlaying = true;
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+        }
+
+        function closeVideoFn() {
+            overlay.classList.remove('open');
+            video.pause();
+            isPlaying = false;
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            if (hlsInstance) { hlsInstance.destroy();
+                hlsInstance = null; }
+            video.src = '';
+            titleEl.textContent = 'Lecture';
+        }
+
+        // Event bindings
+        playBtn.addEventListener('click', togglePlay);
+        skipBack.addEventListener('click', () => { video.currentTime = Math.max(0, video.currentTime - 10); });
+        skipForward.addEventListener('click', () => { video.currentTime = Math.min(video.duration || 0, video.currentTime +
+            10); });
+        video.addEventListener('click', togglePlay);
+        video.addEventListener('timeupdate', () => {
+            if (video.duration) {
+                progressBar.style.width = (video.currentTime / video.duration * 100) + '%';
+                timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+            }
+        });
+        video.addEventListener('loadedmetadata', () => {
+            if (video.duration) {
+                timeDisplay.textContent = `0:00 / ${formatTime(video.duration)}`;
+            }
+        });
+        progressWrap.addEventListener('click', (e) => {
+            const rect = progressWrap.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width;
+            if (video.duration) { video.currentTime = x * video.duration; }
+        });
+        speedBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                speedBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                video.playbackRate = parseFloat(btn.dataset.speed);
+            });
+        });
+        closeBtn.addEventListener('click', closeVideoFn);
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) closeVideoFn(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideoFn(); });
+
+        // Expose for course cards (if needed)
+        window.openVideo = openVideo;
+
+        // ---------- Load Courses ----------
+        async function loadCourses() {
+            try {
+                const q = query(collection(db, 'courses'), orderBy('createdAt', 'desc'));
+                const snap = await getDocs(q);
+                const courses = [];
+                snap.forEach(doc => courses.push({ id: doc.id, ...doc.data() }));
+
+                const allLectures = await getDocs(collection(db, 'lectures'));
+                const allNotes = await getDocs(collection(db, 'notes'));
+                lectureCountEl.textContent = allLectures.size;
+                noteCountEl.textContent = allNotes.size;
+                courseCountEl.textContent = courses.length;
+
+                if (courses.length === 0) {
+                    courseGrid.innerHTML = `
+                        <div class="empty-state">
+                            <h3>No courses yet</h3>
+                            <p>Stay tuned for upcoming content.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let html = '';
+                for (const c of courses) {
+                    const bannerHtml = c.bannerUrl ?
+                        `<img src="${c.bannerUrl}" alt="${c.name}" loading="lazy" />` :
+                        `<div class="placeholder">${c.name.charAt(0).toUpperCase()}</div>`;
+
+                    let lecCount = 0,
+                        noteCount = 0;
+                    const lecSnap = await getDocs(query(collection(db, 'lectures'), orderBy('order', 'asc')));
+                    lecSnap.forEach(d => { if (d.data().courseId === c.id) lecCount++; });
+                    const noteSnap = await getDocs(query(collection(db, 'notes'), orderBy('order', 'asc')));
+                    noteSnap.forEach(d => { if (d.data().courseId === c.id) noteCount++; });
+
+                    html += `
+                        <div class="course-card">
+                            <div class="banner">${bannerHtml}</div>
+                            <div class="body">
+                                <h3>${c.name}</h3>
+                                <div class="meta">
+                                    <span><i class="fas fa-video"></i> ${lecCount} Lectures</span>
+                                    <span><i class="fas fa-file-pdf"></i> ${noteCount} Notes</span>
+                                </div>
+                                <a href="/courses.html?courseId=${c.id}" class="btn-primary">
+                                    <i class="fas fa-arrow-right"></i> View Course
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                }
+                courseGrid.innerHTML = html;
+
+            } catch (err) {
+                console.error(err);
+                courseGrid.innerHTML = `
+                    <div class="empty-state">
+                        <h3>Error loading courses</h3>
+                        <p>${err.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        loadCourses();
+
+        // ---------- Mobile Nav Toggle ----------
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        const navOverlay = document.getElementById('navOverlay');
+
+        function toggleNav() {
+            navToggle.classList.toggle('open');
+            navLinks.classList.toggle('open');
+            navOverlay.classList.toggle('open');
+            document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+        }
+
+        navToggle.addEventListener('click', toggleNav);
+        navOverlay.addEventListener('click', toggleNav);
+
+        // Close nav on link click (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('open')) toggleNav();
+            });
+        });
+
+        // Close nav on resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 769 && navLinks.classList.contains('open')) {
+                toggleNav();
+            }
+        });
+
+        console.log('Infinityamit loaded successfully.');
+    </script>
+
+</body>
+</html>

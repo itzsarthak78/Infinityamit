@@ -9,7 +9,7 @@
     <meta property="og:title" content="Infinityamit – Premium Learning Platform" />
     <meta property="og:description" content="Access high-quality courses with video lectures and notes. Built for serious learners." />
     <meta property="og:url" content="https://infinityamit.verce.app/" />
-    <meta name="theme-color" content="#0f0f1a" />
+    <meta name="theme-color" content="#0a0a0a" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
-        /* ----- RESET & BASE ----- */
+        /* ----- RESET & BASE (Golden Orange / Black theme) ----- */
         *,
         *::before,
         *::after {
@@ -27,26 +27,18 @@
         }
 
         :root {
-            --navy: #0f0f1a;
-            --navy-light: #1a1a2e;
-            --navy-mid: #252540;
-            --gold: #c9a84c;
-            --gold-light: #e8d5a3;
-            --gold-glow: rgba(201, 168, 76, 0.25);
-            --cream: #f8f6f0;
-            --cream-dark: #ede9df;
-            --white: #ffffff;
-            --gray-100: #f3f1ec;
-            --gray-200: #e5e2d9;
-            --gray-300: #ccc7bb;
-            --gray-400: #9a958a;
-            --gray-500: #7a756a;
-            --gray-600: #5a554a;
-            --gray-700: #3d3a32;
-            --gray-800: #2a2822;
-            --shadow: 0 8px 32px rgba(15, 15, 26, 0.12);
-            --shadow-hover: 0 16px 48px rgba(15, 15, 26, 0.18);
-            --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #1e1e1e;
+            --accent: #e67e22;
+            --accent-light: #f39c12;
+            --accent-glow: rgba(230, 126, 34, 0.3);
+            --text-primary: #f5f5f5;
+            --text-secondary: #b0b0b0;
+            --text-muted: #777777;
+            --border-color: #2a2a2a;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            --shadow-hover: 0 16px 48px rgba(230, 126, 34, 0.15);
             --radius: 16px;
             --radius-sm: 10px;
             --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -59,8 +51,8 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--cream);
-            color: var(--gray-800);
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -97,28 +89,22 @@
             width: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: var(--cream);
+            background: var(--bg-primary);
         }
         ::-webkit-scrollbar-thumb {
-            background: var(--gold);
+            background: var(--accent);
             border-radius: 8px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--gold-light);
+            background: var(--accent-light);
         }
 
         /* ----- UTILITY ----- */
-        .text-gold {
-            color: var(--gold);
+        .text-accent {
+            color: var(--accent);
         }
-        .bg-gold {
-            background: var(--gold);
-        }
-        .bg-navy {
-            background: var(--navy);
-        }
-        .text-center {
-            text-align: center;
+        .bg-accent {
+            background: var(--accent);
         }
 
         .section-title {
@@ -126,23 +112,18 @@
             font-weight: 700;
             font-size: 2.6rem;
             letter-spacing: -0.02em;
-            color: var(--navy);
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
             line-height: 1.15;
         }
         .section-title span {
-            color: var(--gold);
+            color: var(--accent);
         }
         .section-sub {
             font-size: 1.1rem;
-            color: var(--gray-600);
+            color: var(--text-secondary);
             font-weight: 400;
             max-width: 640px;
-            margin: 0 auto 0 0;
-        }
-        .section-sub.center {
-            margin: 0 auto;
-            text-align: center;
         }
 
         /* ----- BUTTONS ----- */
@@ -150,28 +131,28 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--accent);
+            color: #fff;
             font-weight: 600;
             font-size: 0.95rem;
             padding: 14px 32px;
             border-radius: 50px;
             transition: all var(--transition);
-            box-shadow: 0 4px 16px var(--gold-glow);
+            box-shadow: 0 4px 16px var(--accent-glow);
             border: none;
             cursor: pointer;
         }
         .btn-primary:hover {
-            background: #dbb95c;
+            background: var(--accent-light);
             transform: translateY(-2px);
-            box-shadow: 0 8px 28px var(--gold-glow);
+            box-shadow: 0 8px 28px var(--accent-glow);
         }
         .btn-outline {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            border: 2px solid var(--gold);
-            color: var(--gold);
+            border: 2px solid var(--accent);
+            color: var(--accent);
             font-weight: 600;
             font-size: 0.95rem;
             padding: 12px 28px;
@@ -180,16 +161,16 @@
             background: transparent;
         }
         .btn-outline:hover {
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--accent);
+            color: #fff;
             transform: translateY(-2px);
         }
         .btn-secondary {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--navy-light);
-            color: var(--white);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             font-weight: 600;
             font-size: 0.95rem;
             padding: 14px 32px;
@@ -197,9 +178,9 @@
             transition: all var(--transition);
         }
         .btn-secondary:hover {
-            background: var(--navy);
+            background: #2a2a2a;
             transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(15, 15, 26, 0.2);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
         }
         .btn-sm {
             padding: 8px 18px;
@@ -207,21 +188,20 @@
         }
 
         /* ============================================================
-                   HEADER / NAVBAR (mobile-first)
+                   HEADER / NAVBAR
                    ============================================================ */
         .header {
-            background: var(--navy);
+            background: var(--bg-primary);
             padding: 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(15, 15, 26, 0.4);
-            border-bottom: 2px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid var(--accent);
             height: var(--nav-height);
             display: flex;
             align-items: center;
         }
-
         .header .container {
             display: flex;
             align-items: center;
@@ -229,18 +209,17 @@
             width: 100%;
             padding: 0 20px;
         }
-
         .logo {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.5rem;
-            color: var(--white);
+            color: var(--text-primary);
             letter-spacing: -0.02em;
             flex-shrink: 0;
             z-index: 1001;
         }
         .logo span {
-            color: var(--gold);
+            color: var(--accent);
         }
 
         /* ---- Hamburger ---- */
@@ -260,7 +239,7 @@
             display: block;
             height: 3px;
             width: 100%;
-            background: var(--white);
+            background: var(--text-primary);
             border-radius: 4px;
             transition: all var(--transition);
             transform-origin: center;
@@ -276,7 +255,7 @@
             transform: translateY(-9.5px) rotate(-45deg);
         }
 
-        /* ---- Nav links (mobile hidden) ---- */
+        /* ---- Nav links (mobile) ---- */
         .nav-links {
             position: fixed;
             top: 0;
@@ -284,22 +263,21 @@
             width: 85%;
             max-width: 360px;
             height: 100vh;
-            background: var(--navy-light);
+            background: var(--bg-secondary);
             padding: 80px 32px 40px;
             display: flex;
             flex-direction: column;
             gap: 8px;
             transition: right 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: -8px 0 40px rgba(0, 0, 0, 0.5);
-            border-left: 2px solid var(--gold);
+            box-shadow: -8px 0 40px rgba(0, 0, 0, 0.8);
+            border-left: 2px solid var(--accent);
             overflow-y: auto;
         }
         .nav-links.open {
             right: 0;
         }
-
         .nav-links a {
-            color: var(--gray-200);
+            color: var(--text-secondary);
             font-size: 1.15rem;
             font-weight: 500;
             padding: 14px 16px;
@@ -312,20 +290,18 @@
         }
         .nav-links a i {
             width: 24px;
-            color: var(--gold);
+            color: var(--accent);
             font-size: 1.1rem;
         }
         .nav-links a:hover {
-            background: rgba(201, 168, 76, 0.08);
-            border-left-color: var(--gold);
-            color: var(--white);
+            background: rgba(230, 126, 34, 0.08);
+            border-left-color: var(--accent);
+            color: var(--text-primary);
         }
-
-        /* overlay */
         .nav-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
             z-index: 998;
             opacity: 0;
             pointer-events: none;
@@ -337,7 +313,6 @@
             pointer-events: auto;
         }
 
-        /* ---- Desktop nav ---- */
         @media (min-width: 769px) {
             .nav-toggle {
                 display: none;
@@ -367,7 +342,7 @@
             .nav-links a:hover {
                 background: transparent;
                 border-left: none;
-                border-bottom-color: var(--gold);
+                border-bottom-color: var(--accent);
             }
             .nav-overlay {
                 display: none !important;
@@ -379,8 +354,8 @@
                    ============================================================ */
         .hero {
             padding: 48px 0 40px;
-            background: linear-gradient(165deg, var(--navy) 0%, var(--navy-light) 100%);
-            border-bottom: 4px solid var(--gold);
+            background: linear-gradient(165deg, #0a0a0a 0%, #1a1a1a 100%);
+            border-bottom: 4px solid var(--accent);
             position: relative;
             overflow: hidden;
         }
@@ -391,8 +366,8 @@
             right: -20%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
-            opacity: 0.25;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            opacity: 0.15;
             pointer-events: none;
         }
         .hero .container {
@@ -409,9 +384,9 @@
         }
         .hero-content .hero-badge {
             display: inline-block;
-            background: rgba(201, 168, 76, 0.15);
-            border: 1px solid rgba(201, 168, 76, 0.3);
-            color: var(--gold-light);
+            background: rgba(230, 126, 34, 0.15);
+            border: 1px solid rgba(230, 126, 34, 0.3);
+            color: var(--accent-light);
             font-size: 0.75rem;
             padding: 4px 16px;
             border-radius: 50px;
@@ -424,17 +399,17 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 2.8rem;
-            color: var(--white);
+            color: var(--text-primary);
             line-height: 1.12;
             letter-spacing: -0.02em;
             margin-bottom: 12px;
         }
         .hero-content h1 span {
-            color: var(--gold);
+            color: var(--accent);
         }
         .hero-content p {
             font-size: 1.1rem;
-            color: var(--gray-200);
+            color: var(--text-secondary);
             max-width: 480px;
             margin-bottom: 24px;
             font-weight: 300;
@@ -453,13 +428,13 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 2rem;
-            color: var(--gold);
+            color: var(--accent);
             display: block;
             line-height: 1.2;
         }
         .hero-stats .label {
             font-size: 0.75rem;
-            color: var(--gray-400);
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.06em;
             font-weight: 500;
@@ -467,11 +442,11 @@
         .hero-omega {
             flex: 0 0 80px;
             text-align: center;
-            color: var(--gold-light);
+            color: var(--accent);
             font-family: 'Playfair Display', serif;
             font-size: 4rem;
             font-weight: 700;
-            opacity: 0.25;
+            opacity: 0.3;
             line-height: 1;
         }
         .hero-actions {
@@ -536,7 +511,7 @@
         }
 
         /* ============================================================
-                   COURSE GRID (Banner 16:9)
+                   COURSE GRID
                    ============================================================ */
         .courses-section {
             padding: 56px 0 64px;
@@ -555,28 +530,28 @@
 
         .course-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
         }
 
         .course-card {
-            background: var(--white);
+            background: var(--bg-card);
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: all var(--transition);
-            border: 1px solid var(--gray-200);
+            border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
         }
         .course-card:hover {
             transform: translateY(-6px);
             box-shadow: var(--shadow-hover);
-            border-color: var(--gold);
+            border-color: var(--accent);
         }
         .course-card .banner {
             aspect-ratio: 16 / 9;
-            background: var(--navy-light);
+            background: var(--bg-secondary);
             position: relative;
             overflow: hidden;
             flex-shrink: 0;
@@ -593,8 +568,8 @@
             align-items: center;
             justify-content: center;
             font-size: 3rem;
-            color: var(--gold-light);
-            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            color: var(--accent);
+            background: linear-gradient(135deg, var(--bg-secondary), #2a2a2a);
             font-family: 'Playfair Display', serif;
             font-weight: 700;
         }
@@ -607,8 +582,8 @@
         .course-card .body h3 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--navy);
+            font-size: 1.3rem;
+            color: var(--text-primary);
             margin-bottom: 4px;
             line-height: 1.3;
         }
@@ -616,13 +591,13 @@
             display: flex;
             gap: 18px;
             font-size: 0.8rem;
-            color: var(--gray-600);
+            color: var(--text-muted);
             margin-top: 6px;
             margin-bottom: 14px;
             flex-wrap: wrap;
         }
         .course-card .body .meta i {
-            color: var(--gold);
+            color: var(--accent);
             width: 16px;
         }
         .course-card .body .btn-primary {
@@ -636,47 +611,40 @@
             grid-column: 1 / -1;
             text-align: center;
             padding: 60px 20px;
-            background: var(--white);
+            background: var(--bg-card);
             border-radius: var(--radius);
-            border: 2px dashed var(--gray-200);
+            border: 2px dashed var(--border-color);
         }
         .empty-state h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
-            color: var(--gray-600);
+            color: var(--text-secondary);
         }
         .empty-state p {
-            color: var(--gray-400);
+            color: var(--text-muted);
             margin-top: 6px;
         }
 
         @media (max-width: 640px) {
             .course-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
             .course-card .body {
                 padding: 14px 16px 18px;
             }
             .course-card .body h3 {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             .course-card .body .meta {
                 font-size: 0.7rem;
                 gap: 12px;
             }
             .course-card .body .btn-primary {
-                padding: 8px 18px;
-                font-size: 0.75rem;
+                padding: 10px 20px;
+                font-size: 0.8rem;
                 width: 100%;
                 justify-content: center;
-            }
-        }
-
-        @media (max-width: 420px) {
-            .course-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
             }
         }
 
@@ -685,9 +653,9 @@
                    ============================================================ */
         .info-section {
             padding: 64px 0 56px;
-            background: var(--white);
-            border-top: 1px solid var(--gray-200);
-            border-bottom: 1px solid var(--gray-200);
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
         .info-section .container {
             display: grid;
@@ -698,15 +666,15 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 2rem;
-            color: var(--navy);
+            color: var(--text-primary);
             margin-bottom: 16px;
             line-height: 1.2;
         }
         .info-block h2 span {
-            color: var(--gold);
+            color: var(--accent);
         }
         .info-block p {
-            color: var(--gray-600);
+            color: var(--text-secondary);
             font-size: 1rem;
             line-height: 1.8;
             margin-bottom: 14px;
@@ -719,8 +687,8 @@
             align-items: flex-start;
             gap: 12px;
             padding: 10px 0;
-            border-bottom: 1px solid var(--gray-100);
-            color: var(--gray-700);
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.6;
         }
@@ -728,7 +696,7 @@
             border-bottom: none;
         }
         .info-block ul li i {
-            color: var(--gold);
+            color: var(--accent);
             font-size: 1.1rem;
             margin-top: 2px;
             flex-shrink: 0;
@@ -736,30 +704,30 @@
             text-align: center;
         }
         .info-block ul li strong {
-            color: var(--navy);
+            color: var(--text-primary);
             font-weight: 600;
         }
 
         .vision-block {
-            background: var(--navy);
+            background: var(--bg-primary);
             padding: 32px 36px;
             border-radius: var(--radius);
-            border-left: 4px solid var(--gold);
-            box-shadow: var(--shadow-dark);
+            border-left: 4px solid var(--accent);
+            box-shadow: var(--shadow);
             align-self: start;
         }
         .vision-block h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.8rem;
-            color: var(--white);
+            color: var(--text-primary);
             margin-bottom: 14px;
         }
         .vision-block h2 span {
-            color: var(--gold);
+            color: var(--accent);
         }
         .vision-block p {
-            color: var(--gray-200);
+            color: var(--text-secondary);
             font-size: 1rem;
             line-height: 1.8;
             margin-bottom: 12px;
@@ -768,7 +736,7 @@
             margin-bottom: 0;
         }
         .vision-block .highlight {
-            color: var(--gold-light);
+            color: var(--accent-light);
             font-weight: 500;
         }
 
@@ -806,10 +774,10 @@
                    FOOTER
                    ============================================================ */
         .footer {
-            background: var(--navy);
-            color: var(--gray-400);
+            background: var(--bg-primary);
+            color: var(--text-muted);
             padding: 36px 0 24px;
-            border-top: 2px solid var(--gold);
+            border-top: 2px solid var(--accent);
         }
         .footer .container {
             display: flex;
@@ -822,21 +790,21 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.3rem;
-            color: var(--white);
+            color: var(--text-primary);
         }
         .footer .logo-sm span {
-            color: var(--gold);
+            color: var(--accent);
         }
         .footer .sarthak-credit {
             font-size: 0.9rem;
         }
         .footer .sarthak-credit a {
-            color: var(--gold);
+            color: var(--accent);
             font-weight: 600;
             transition: color var(--transition);
         }
         .footer .sarthak-credit a:hover {
-            color: var(--gold-light);
+            color: var(--accent-light);
             text-decoration: underline;
         }
         .footer .copy {
@@ -858,12 +826,12 @@
         }
 
         /* ============================================================
-                   VIDEO OVERLAY (for the player)
+                   VIDEO OVERLAY (same as before)
                    ============================================================ */
         .video-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(15, 15, 26, 0.94);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 2000;
             display: none;
             align-items: center;
@@ -875,24 +843,24 @@
             display: flex;
         }
         .video-overlay .modal {
-            background: var(--navy);
+            background: var(--bg-secondary);
             border-radius: var(--radius);
             max-width: 920px;
             width: 100%;
-            border: 2px solid var(--gold);
+            border: 2px solid var(--accent);
             overflow: hidden;
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.9);
             position: relative;
         }
         .video-overlay .modal .close-btn {
             position: absolute;
             top: 12px;
             right: 14px;
-            color: var(--white);
+            color: var(--text-primary);
             font-size: 1.5rem;
             z-index: 10;
             transition: transform var(--transition);
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
             width: 42px;
             height: 42px;
             border-radius: 50%;
@@ -903,14 +871,14 @@
         }
         .video-overlay .modal .close-btn:hover {
             transform: scale(1.1);
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
         }
         .video-overlay .modal .video-title {
             padding: 12px 20px 4px;
-            color: var(--white);
+            color: var(--text-primary);
             font-weight: 500;
             font-size: 0.95rem;
-            background: rgba(15, 15, 26, 0.5);
+            background: rgba(0, 0, 0, 0.5);
         }
         .video-overlay .modal .video-wrapper {
             position: relative;
@@ -927,7 +895,7 @@
             outline: none;
         }
         .video-overlay .modal .video-controls {
-            background: rgba(15, 15, 26, 0.96);
+            background: rgba(0, 0, 0, 0.95);
             padding: 10px 16px 12px;
             display: flex;
             align-items: center;
@@ -936,7 +904,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
         .video-overlay .modal .video-controls button {
-            color: var(--white);
+            color: var(--text-primary);
             font-size: 1rem;
             transition: color var(--transition);
             background: none;
@@ -944,10 +912,10 @@
             border-radius: 4px;
         }
         .video-overlay .modal .video-controls button:hover {
-            color: var(--gold);
+            color: var(--accent);
         }
         .video-overlay .modal .video-controls .time {
-            color: var(--gray-400);
+            color: var(--text-muted);
             font-size: 0.75rem;
             font-weight: 400;
             min-width: 80px;
@@ -966,7 +934,7 @@
         .video-overlay .modal .video-controls .progress-wrap .bar {
             height: 100%;
             width: 0%;
-            background: var(--gold);
+            background: var(--accent);
             border-radius: 4px;
             transition: width 0.1s linear;
         }
@@ -978,7 +946,7 @@
         .video-overlay .modal .video-controls .speed-group button {
             font-size: 0.6rem;
             font-weight: 600;
-            color: var(--gray-400);
+            color: var(--text-muted);
             padding: 2px 7px;
             border-radius: 4px;
             background: rgba(255, 255, 255, 0.04);
@@ -986,13 +954,13 @@
             transition: all var(--transition);
         }
         .video-overlay .modal .video-controls .speed-group button:hover {
-            color: var(--white);
+            color: var(--text-primary);
             background: rgba(255, 255, 255, 0.08);
         }
         .video-overlay .modal .video-controls .speed-group button.active {
-            color: var(--gold);
-            border-color: var(--gold);
-            background: rgba(201, 168, 76, 0.12);
+            color: var(--accent);
+            border-color: var(--accent);
+            background: rgba(230, 126, 34, 0.12);
         }
 
         @media (max-width: 600px) {
@@ -1038,20 +1006,17 @@
         <div class="container">
             <a href="/" class="logo">Infinity<span>amit</span></a>
 
-            <!-- Hamburger Toggle -->
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <!-- Navigation Links -->
             <nav class="nav-links" id="navLinks">
                 <a href="/"><i class="fas fa-home"></i> Home</a>
                 <a href="/courses.html"><i class="fas fa-graduation-cap"></i> Courses</a>
             </nav>
 
-            <!-- Overlay -->
             <div class="nav-overlay" id="navOverlay"></div>
         </div>
     </header>
@@ -1092,56 +1057,40 @@
     <!-- ============================================================ -->
     <section class="info-section">
         <div class="container">
-
-            <!-- Why Use Us -->
             <div class="info-block">
                 <h2>Why Use <span>Infinityamit</span>?</h2>
                 <p>
-                    Infinityamit is not just another course platform. It is a thoughtfully crafted ecosystem
-                    designed to make learning seamless, engaging, and truly effective. Here is why learners
-                    and creators choose us:
+                    Infinityamit is a premium learning ecosystem designed for serious aspirants.
+                    Here is why learners choose us:
                 </p>
                 <ul>
                     <li>
                         <i class="fas fa-video"></i>
-                        <div><strong>HD Video Lectures</strong> – Watch crystal-clear lectures with our
-                        advanced player that supports speed control, skip forward/backward, and smooth
-                        streaming. No buffering, no distractions.</div>
+                        <div><strong>HD Video Lectures</strong> – Crystal‑clear lectures with speed control, skip, and smooth streaming.</div>
                     </li>
                     <li>
                         <i class="fas fa-file-pdf"></i>
-                        <div><strong>Downloadable Notes</strong> – Every course comes with structured,
-                        chapter-wise notes in PDF format. Download them and study offline, anytime,
-                        anywhere.</div>
+                        <div><strong>Downloadable Notes</strong> – Chapter‑wise PDF notes for offline study.</div>
                     </li>
                     <li>
                         <i class="fas fa-mobile-alt"></i>
-                        <div><strong>Mobile-First Design</strong> – Learn on the go. Our platform is
-                        fully responsive and works flawlessly on your phone, tablet, or desktop.
-                        No compromises.</div>
+                        <div><strong>Mobile‑First</strong> – Fully responsive, works on any device.</div>
                     </li>
                     <li>
                         <i class="fas fa-cloud-upload-alt"></i>
-                        <div><strong>Easy Content Management</strong> – Course creators can upload
-                        banners, add lectures with video URLs, and attach PDF notes through a clean,
-                        intuitive admin panel. No coding required.</div>
+                        <div><strong>Easy Management</strong> – Add lectures and notes via a clean admin panel.</div>
                     </li>
                     <li>
                         <i class="fas fa-shield-alt"></i>
-                        <div><strong>Secure & Reliable</strong> – Built with Firebase backend, all your
-                        data is stored securely. Your learning progress and content are always safe
-                        and accessible.</div>
+                        <div><strong>Secure</strong> – Firebase backend ensures your data is safe.</div>
                     </li>
                     <li>
                         <i class="fas fa-rocket"></i>
-                        <div><strong>Fast & Optimized</strong> – Lightning-fast page loads, lazy-loaded
-                        images, and optimized assets ensure you spend less time waiting and more time
-                        learning.</div>
+                        <div><strong>Fast</strong> – Optimised for lightning‑fast loading.</div>
                     </li>
                 </ul>
             </div>
 
-            <!-- Our Vision -->
             <div class="vision-block">
                 <h2>Our <span>Vision</span></h2>
                 <p>
@@ -1158,16 +1107,14 @@
                 <p>
                     We are committed to <span class="highlight">constant innovation</span> – integrating
                     the latest technologies to make learning more interactive, personalized, and
-                    impactful. From AI-driven recommendations to immersive video experiences, we are
-                    just getting started.
+                    impactful.
                 </p>
-                <p style="margin-top:16px; font-style:italic; color:var(--gold-light);">
+                <p style="margin-top:16px; font-style:italic; color:var(--accent-light);">
                     <i class="fas fa-quote-left" style="margin-right:8px; opacity:0.6;"></i>
                     Empowering minds, one lecture at a time.
                     <i class="fas fa-quote-right" style="margin-left:8px; opacity:0.6;"></i>
                 </p>
             </div>
-
         </div>
     </section>
 
@@ -1203,14 +1150,14 @@
             <div class="logo-sm">Infinity<span>amit</span></div>
             <div class="sarthak-credit">
                 Developed by <a href="mailto:sarthak.dev@tuta.io">Sarthak</a>
-                <i class="fas fa-heart" style="color:var(--gold); font-size:0.7rem; margin-left:4px;"></i>
+                <i class="fas fa-heart" style="color:var(--accent); font-size:0.7rem; margin-left:4px;"></i>
             </div>
             <div class="copy">&copy; 2026 Infinityamit. All rights reserved.</div>
         </div>
     </footer>
 
     <!-- ============================================================ -->
-    <!-- VIDEO OVERLAY (for player) -->
+    <!-- VIDEO OVERLAY -->
     <!-- ============================================================ -->
     <div class="video-overlay" id="videoOverlay">
         <div class="modal">
@@ -1243,7 +1190,6 @@
     <!-- ============================================================ -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@0.14.17/dist/hls.min.js">
     </script>
-
     <script type="importmap">
         {
             "imports": {
@@ -1255,7 +1201,6 @@
     </script>
 
     <script type="module">
-        // ----- Firebase -----
         import { initializeApp } from 'firebase/app';
         import { getFirestore, collection, query, orderBy, getDocs } from 'firebase/firestore';
 
@@ -1272,13 +1217,13 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // ---------- DOM refs ----------
+        // DOM refs
         const courseGrid = document.getElementById('courseGrid');
         const courseCountEl = document.getElementById('courseCount');
         const lectureCountEl = document.getElementById('lectureCount');
         const noteCountEl = document.getElementById('noteCount');
 
-        // ---------- Video Player ----------
+        // Video Player (same logic)
         const overlay = document.getElementById('videoOverlay');
         const video = document.getElementById('videoPlayer');
         const playBtn = document.getElementById('playBtn');
@@ -1359,7 +1304,6 @@
             titleEl.textContent = 'Lecture';
         }
 
-        // Event bindings
         playBtn.addEventListener('click', togglePlay);
         skipBack.addEventListener('click', () => { video.currentTime = Math.max(0, video.currentTime - 10); });
         skipForward.addEventListener('click', () => { video.currentTime = Math.min(video.duration || 0, video.currentTime +
@@ -1392,35 +1336,40 @@
         overlay.addEventListener('click', (e) => { if (e.target === overlay) closeVideoFn(); });
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideoFn(); });
 
-        // Expose for course cards (if needed)
         window.openVideo = openVideo;
 
-        // ---------- Load Courses ----------
+        // ---------- Load Courses (only those two) ----------
         async function loadCourses() {
             try {
+                // We'll fetch all courses, but filter to only those two by name or ID.
+                // To keep it dynamic, we'll just show all; since we removed add courses, only these two exist.
                 const q = query(collection(db, 'courses'), orderBy('createdAt', 'desc'));
                 const snap = await getDocs(q);
                 const courses = [];
                 snap.forEach(doc => courses.push({ id: doc.id, ...doc.data() }));
 
+                // Hardcoded list of allowed course names (optional)
+                const allowedNames = ['IOQM - CRASH COURSE 2026', 'NSEJS + SEHSS'];
+                const filtered = courses.filter(c => allowedNames.includes(c.name));
+
                 const allLectures = await getDocs(collection(db, 'lectures'));
                 const allNotes = await getDocs(collection(db, 'notes'));
                 lectureCountEl.textContent = allLectures.size;
                 noteCountEl.textContent = allNotes.size;
-                courseCountEl.textContent = courses.length;
+                courseCountEl.textContent = filtered.length;
 
-                if (courses.length === 0) {
+                if (filtered.length === 0) {
                     courseGrid.innerHTML = `
                         <div class="empty-state">
-                            <h3>No courses yet</h3>
-                            <p>Stay tuned for upcoming content.</p>
+                            <h3>No courses available</h3>
+                            <p>Please check back later.</p>
                         </div>
                     `;
                     return;
                 }
 
                 let html = '';
-                for (const c of courses) {
+                for (const c of filtered) {
                     const bannerHtml = c.bannerUrl ?
                         `<img src="${c.bannerUrl}" alt="${c.name}" loading="lazy" />` :
                         `<div class="placeholder">${c.name.charAt(0).toUpperCase()}</div>`;
@@ -1463,7 +1412,7 @@
 
         loadCourses();
 
-        // ---------- Mobile Nav Toggle ----------
+        // Mobile Nav Toggle
         const navToggle = document.getElementById('navToggle');
         const navLinks = document.getElementById('navLinks');
         const navOverlay = document.getElementById('navOverlay');
@@ -1477,15 +1426,11 @@
 
         navToggle.addEventListener('click', toggleNav);
         navOverlay.addEventListener('click', toggleNav);
-
-        // Close nav on link click (mobile)
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navLinks.classList.contains('open')) toggleNav();
             });
         });
-
-        // Close nav on resize to desktop
         window.addEventListener('resize', () => {
             if (window.innerWidth >= 769 && navLinks.classList.contains('open')) {
                 toggleNav();
@@ -1494,6 +1439,5 @@
 
         console.log('Infinityamit loaded successfully.');
     </script>
-
 </body>
 </html>

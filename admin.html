@@ -10,32 +10,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-        /* ----- RESET & BASE ----- */
+        /* Same theme as index */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         :root {
-            --navy: #0f0f1a;
-            --navy-light: #1a1a2e;
-            --gold: #c9a84c;
-            --gold-light: #e8d5a3;
-            --gold-glow: rgba(201, 168, 76, 0.25);
-            --cream: #f8f6f0;
-            --cream-dark: #ede9df;
-            --white: #ffffff;
-            --gray-100: #f3f1ec;
-            --gray-200: #e5e2d9;
-            --gray-300: #ccc7bb;
-            --gray-400: #9a958a;
-            --gray-500: #7a756a;
-            --gray-600: #5a554a;
-            --gray-700: #3d3a32;
-            --gray-800: #2a2822;
-            --shadow: 0 8px 32px rgba(15, 15, 26, 0.12);
-            --shadow-hover: 0 16px 48px rgba(15, 15, 26, 0.18);
-            --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #1e1e1e;
+            --accent: #e67e22;
+            --accent-light: #f39c12;
+            --accent-glow: rgba(230, 126, 34, 0.3);
+            --text-primary: #f5f5f5;
+            --text-secondary: #b0b0b0;
+            --text-muted: #777777;
+            --border-color: #2a2a2a;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            --shadow-hover: 0 16px 48px rgba(230, 126, 34, 0.15);
             --radius: 16px;
             --radius-sm: 10px;
             --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -43,8 +36,8 @@
         }
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--cream);
-            color: var(--gray-800);
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
@@ -54,15 +47,15 @@
             padding: 0 24px;
         }
 
-        /* ----- HEADER ----- */
+        /* Header */
         .header {
-            background: var(--navy);
+            background: var(--bg-primary);
             padding: 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 20px rgba(15, 15, 26, 0.4);
-            border-bottom: 2px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid var(--accent);
             height: var(--nav-height);
             display: flex;
             align-items: center;
@@ -78,50 +71,50 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.5rem;
-            color: var(--white);
+            color: var(--text-primary);
             letter-spacing: -0.02em;
         }
         .logo span {
-            color: var(--gold);
+            color: var(--accent);
         }
         .header-nav a {
-            color: var(--gray-200);
+            color: var(--text-secondary);
             font-size: 0.95rem;
             font-weight: 500;
             margin-left: 28px;
             transition: color var(--transition);
         }
         .header-nav a:hover {
-            color: var(--white);
+            color: var(--text-primary);
         }
 
-        /* ----- BUTTONS ----- */
+        /* Buttons */
         .btn-primary {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--accent);
+            color: #fff;
             font-weight: 600;
             font-size: 0.95rem;
             padding: 14px 32px;
             border-radius: 50px;
             transition: all var(--transition);
-            box-shadow: 0 4px 16px var(--gold-glow);
+            box-shadow: 0 4px 16px var(--accent-glow);
             border: none;
             cursor: pointer;
         }
         .btn-primary:hover {
-            background: #dbb95c;
+            background: var(--accent-light);
             transform: translateY(-2px);
-            box-shadow: 0 8px 28px var(--gold-glow);
+            box-shadow: 0 8px 28px var(--accent-glow);
         }
         .btn-secondary {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--navy-light);
-            color: var(--white);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             font-weight: 600;
             font-size: 0.95rem;
             padding: 14px 32px;
@@ -129,16 +122,16 @@
             transition: all var(--transition);
         }
         .btn-secondary:hover {
-            background: var(--navy);
+            background: #2a2a2a;
             transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(15, 15, 26, 0.2);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
         }
         .btn-outline {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            border: 2px solid var(--gold);
-            color: var(--gold);
+            border: 2px solid var(--accent);
+            color: var(--accent);
             font-weight: 600;
             font-size: 0.95rem;
             padding: 12px 28px;
@@ -147,8 +140,8 @@
             background: transparent;
         }
         .btn-outline:hover {
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--accent);
+            color: #fff;
             transform: translateY(-2px);
         }
         .btn-sm {
@@ -156,38 +149,39 @@
             font-size: 0.8rem;
         }
 
-        /* ----- ADMIN LAYOUT ----- */
-        .admin-layout {
-            padding: 40px 0 64px;
-        }
-        .admin-layout .sub {
-            color: var(--gray-600);
-            margin-bottom: 32px;
-        }
         .section-title {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 2.4rem;
-            color: var(--navy);
+            color: var(--text-primary);
             margin-bottom: 0.3rem;
         }
         .section-title span {
-            color: var(--gold);
+            color: var(--accent);
+        }
+
+        /* Admin Layout */
+        .admin-layout {
+            padding: 40px 0 64px;
+        }
+        .admin-layout .sub {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
         }
 
         .admin-card {
-            background: var(--white);
+            background: var(--bg-card);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             padding: 28px 32px;
-            border: 1px solid var(--gray-200);
+            border: 1px solid var(--border-color);
             margin-bottom: 28px;
         }
         .admin-card h3 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.3rem;
-            color: var(--navy);
+            color: var(--text-primary);
             margin-bottom: 18px;
         }
         .admin-card .form-group {
@@ -197,7 +191,7 @@
             display: block;
             font-weight: 600;
             font-size: 0.85rem;
-            color: var(--gray-600);
+            color: var(--text-secondary);
             margin-bottom: 4px;
         }
         .admin-card .form-group input,
@@ -205,23 +199,24 @@
         .admin-card .form-group select {
             width: 100%;
             padding: 12px 16px;
-            border: 2px solid var(--gray-200);
+            border: 2px solid var(--border-color);
             border-radius: var(--radius-sm);
             font-family: inherit;
             font-size: 0.95rem;
             transition: border var(--transition);
-            background: var(--cream);
+            background: var(--bg-primary);
+            color: var(--text-primary);
         }
         .admin-card .form-group input:focus,
         .admin-card .form-group textarea:focus,
         .admin-card .form-group select:focus {
-            border-color: var(--gold);
+            border-color: var(--accent);
             outline: none;
-            background: var(--white);
+            background: var(--bg-secondary);
         }
         .admin-card .form-group input[type="file"] {
             padding: 10px 12px;
-            background: var(--cream);
+            background: var(--bg-primary);
         }
         .admin-card .fetch-row {
             display: flex;
@@ -246,18 +241,18 @@
         }
         .fetch-status.success {
             display: block;
-            background: #e6f4e6;
-            color: #1a6e1a;
+            background: #1a3a1a;
+            color: #8bc34a;
         }
         .fetch-status.error {
             display: block;
-            background: #fce8e8;
-            color: #a13333;
+            background: #3a1a1a;
+            color: #e57373;
         }
         .fetch-status.loading {
             display: block;
-            background: #e8edf5;
-            color: #2a4a7a;
+            background: #1a2a3a;
+            color: #64b5f6;
         }
 
         .admin-list {
@@ -269,7 +264,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 12px 16px;
-            border-bottom: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--border-color);
             gap: 12px;
             flex-wrap: wrap;
         }
@@ -286,7 +281,7 @@
             width: 44px;
             height: 44px;
             border-radius: var(--radius-sm);
-            background: var(--navy-light);
+            background: var(--bg-secondary);
             overflow: hidden;
             flex-shrink: 0;
         }
@@ -301,7 +296,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gold-light);
+            color: var(--accent);
             font-size: 1.2rem;
             font-weight: 700;
             font-family: 'Playfair Display', serif;
@@ -311,7 +306,7 @@
         }
         .admin-list li .info .meta {
             font-size: 0.8rem;
-            color: var(--gray-400);
+            color: var(--text-muted);
         }
         .admin-list li .actions {
             display: flex;
@@ -323,25 +318,25 @@
             border-radius: 50px;
             font-weight: 500;
             transition: all var(--transition);
-            border: 1px solid var(--gray-200);
-            background: var(--cream);
-            color: var(--gray-600);
+            border: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            color: var(--text-secondary);
         }
         .admin-list li .actions button:hover {
-            border-color: var(--gold);
-            color: var(--gold);
+            border-color: var(--accent);
+            color: var(--accent);
         }
         .admin-list li .actions button.danger:hover {
-            border-color: #d14a4a;
-            color: #d14a4a;
+            border-color: #e57373;
+            color: #e57373;
         }
 
-        /* ----- FOOTER ----- */
+        /* Footer */
         .footer {
-            background: var(--navy);
-            color: var(--gray-400);
+            background: var(--bg-primary);
+            color: var(--text-muted);
             padding: 36px 0 24px;
-            border-top: 2px solid var(--gold);
+            border-top: 2px solid var(--accent);
         }
         .footer .container {
             display: flex;
@@ -354,58 +349,58 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.3rem;
-            color: var(--white);
+            color: var(--text-primary);
         }
         .footer .logo-sm span {
-            color: var(--gold);
+            color: var(--accent);
         }
         .footer .copy {
             font-size: 0.8rem;
         }
         .footer .copy a {
-            color: var(--gold);
+            color: var(--accent);
             font-weight: 500;
         }
         .footer .copy a:hover {
             text-decoration: underline;
         }
 
-        /* ----- PASSWORD GATE ----- */
+        /* Password Gate */
         .password-gate {
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background: linear-gradient(165deg, var(--navy), var(--navy-light));
+            background: linear-gradient(165deg, var(--bg-primary), var(--bg-secondary));
             padding: 24px;
         }
         .password-gate .gate-box {
-            background: var(--white);
+            background: var(--bg-card);
             border-radius: var(--radius);
             padding: 48px 40px;
             max-width: 420px;
             width: 100%;
-            box-shadow: var(--shadow-dark);
-            border: 2px solid var(--gold);
+            box-shadow: var(--shadow);
+            border: 2px solid var(--accent);
             text-align: center;
         }
         .password-gate .gate-box .lock-icon {
             font-size: 3rem;
-            color: var(--gold);
+            color: var(--accent);
             margin-bottom: 16px;
         }
         .password-gate .gate-box h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.6rem;
-            color: var(--navy);
+            color: var(--text-primary);
             margin-bottom: 6px;
         }
         .password-gate .gate-box h2 span {
-            color: var(--gold);
+            color: var(--accent);
         }
         .password-gate .gate-box p {
-            color: var(--gray-600);
+            color: var(--text-secondary);
             font-size: 0.95rem;
             margin-bottom: 24px;
         }
@@ -417,26 +412,27 @@
             display: block;
             font-weight: 600;
             font-size: 0.85rem;
-            color: var(--gray-600);
+            color: var(--text-secondary);
             margin-bottom: 4px;
         }
         .password-gate .gate-box .form-group input {
             width: 100%;
             padding: 14px 18px;
-            border: 2px solid var(--gray-200);
+            border: 2px solid var(--border-color);
             border-radius: var(--radius-sm);
             font-family: inherit;
             font-size: 1rem;
             transition: border var(--transition);
-            background: var(--cream);
+            background: var(--bg-primary);
+            color: var(--text-primary);
         }
         .password-gate .gate-box .form-group input:focus {
-            border-color: var(--gold);
+            border-color: var(--accent);
             outline: none;
-            background: var(--white);
+            background: var(--bg-secondary);
         }
         .password-gate .gate-box .error-msg {
-            color: #d14a4a;
+            color: #e57373;
             font-size: 0.85rem;
             margin-top: 8px;
             display: none;
@@ -529,39 +525,23 @@
         <section class="admin-layout">
             <div class="container">
                 <h2 class="section-title">Admin <span>Panel</span></h2>
-                <p class="sub">Manage courses, lectures, and notes</p>
+                <p class="sub">Manage lectures and notes for your courses.</p>
 
-                <!-- Add Course -->
+                <!-- Course List (only two courses) -->
                 <div class="admin-card">
-                    <h3><i class="fas fa-plus-circle" style="color:var(--gold);"></i> Add New Course</h3>
-                    <form id="addCourseForm">
-                        <div class="form-group">
-                            <label>Course Name</label>
-                            <input type="text" id="courseName" placeholder="e.g. Web Development Masterclass" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Banner Image (upload)</label>
-                            <input type="file" id="courseBanner" accept="image/*" required />
-                        </div>
-                        <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Create Course</button>
-                    </form>
-                </div>
-
-                <!-- Course List -->
-                <div class="admin-card">
-                    <h3><i class="fas fa-list" style="color:var(--gold);"></i> All Courses</h3>
+                    <h3><i class="fas fa-list" style="color:var(--accent);"></i> Your Courses</h3>
                     <ul class="admin-list" id="adminCourseList">
-                        <li style="color:var(--gray-400);text-align:center;padding:20px;">Loading courses...</li>
+                        <li style="color:var(--text-muted);text-align:center;padding:20px;">Loading courses...</li>
                     </ul>
                 </div>
 
                 <!-- Add Lecture -->
                 <div class="admin-card" id="addLectureCard" style="display:none;">
-                    <h3><i class="fas fa-video" style="color:var(--gold);"></i> Add Lecture to <span id="lectureCourseName">Course</span></h3>
+                    <h3><i class="fas fa-video" style="color:var(--accent);"></i> Add Lecture to <span id="lectureCourseName">Course</span></h3>
                     <form id="addLectureForm">
                         <input type="hidden" id="lectureCourseId" />
                         <div class="form-group">
-                            <label>Lecture Title</label>
+                            <label>Lecture Name</label>
                             <input type="text" id="lectureTitle" placeholder="e.g. Introduction" required />
                         </div>
                         <div class="form-group">
@@ -586,11 +566,11 @@
 
                 <!-- Add Note -->
                 <div class="admin-card" id="addNoteCard" style="display:none;">
-                    <h3><i class="fas fa-file-pdf" style="color:var(--gold);"></i> Add Note to <span id="noteCourseName">Course</span></h3>
+                    <h3><i class="fas fa-file-pdf" style="color:var(--accent);"></i> Add Note to <span id="noteCourseName">Course</span></h3>
                     <form id="addNoteForm">
                         <input type="hidden" id="noteCourseId" />
                         <div class="form-group">
-                            <label>Note Title</label>
+                            <label>Note Name</label>
                             <input type="text" id="noteTitle" placeholder="e.g. Chapter 1 Summary" required />
                         </div>
                         <div class="form-group">
@@ -603,13 +583,13 @@
 
                 <!-- Manage Items -->
                 <div class="admin-card" id="manageItemsCard" style="display:none;">
-                    <h3><i class="fas fa-cog" style="color:var(--gold);"></i> Manage <span id="manageCourseName">Course</span></h3>
+                    <h3><i class="fas fa-cog" style="color:var(--accent);"></i> Manage <span id="manageCourseName">Course</span></h3>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
                         <button class="btn-outline" id="refreshItemsBtn"><i class="fas fa-sync"></i> Refresh</button>
                         <button class="btn-secondary" id="clearSelectionBtn"><i class="fas fa-times"></i> Clear Selection</button>
                     </div>
                     <div id="manageItemsList">
-                        <p style="color:var(--gray-400);">Select a course from the list above to manage its lectures and notes.</p>
+                        <p style="color:var(--text-muted);">Select a course from the list above to manage its lectures and notes.</p>
                     </div>
                 </div>
             </div>
@@ -696,14 +676,24 @@
                             try {
                                 const q = query(collection(db, 'courses'), orderBy('createdAt', 'desc'));
                                 const snap = await getDocs(q);
-                                if (snap.empty) {
+                                // Filter to only the two allowed courses
+                                const allowedNames = ['IOQM - CRASH COURSE 2026', 'NSEJS + SEHSS'];
+                                const courses = [];
+                                snap.forEach(doc => {
+                                    const data = doc.data();
+                                    if (allowedNames.includes(data.name)) {
+                                        courses.push({ id: doc.id, ...data });
+                                    }
+                                });
+
+                                if (courses.length === 0) {
                                     adminCourseList.innerHTML =
-                                        `<li style="color:var(--gray-400);text-align:center;padding:20px;">No courses yet. Add one above.</li>`;
+                                        `<li style="color:var(--text-muted);text-align:center;padding:20px;">No courses found. Please seed the database with the two courses.</li>`;
                                     return;
                                 }
+
                                 let html = '';
-                                snap.forEach(doc => {
-                                    const c = { id: doc.id, ...doc.data() };
+                                courses.forEach(c => {
                                     const thumb = c.bannerUrl ?
                                         `<img src="${c.bannerUrl}" alt="${c.name}" />` :
                                         `<div class="placeholder">${c.name.charAt(0).toUpperCase()}</div>`;
@@ -720,9 +710,7 @@
                                                 <button class="course-select-btn" data-id="${c.id}" data-name="${c.name}">
                                                     <i class="fas fa-edit"></i> Manage
                                                 </button>
-                                                <button class="danger course-delete-btn" data-id="${c.id}">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
+                                                <!-- No delete button for courses -->
                                             </div>
                                         </li>
                                     `;
@@ -735,48 +723,17 @@
                                         const name = btn.dataset.name;
                                         selectCourseForManagement(id, name);
                                         document.querySelectorAll('.course-select-btn').forEach(b => {
-                                            b.style.borderColor = 'var(--gray-200)';
+                                            b.style.borderColor = 'var(--border-color)';
                                             b.style.background = 'transparent';
                                         });
-                                        btn.style.borderColor = 'var(--gold)';
-                                        btn.style.background = 'rgba(201,168,76,0.1)';
-                                    });
-                                });
-
-                                document.querySelectorAll('.course-delete-btn').forEach(btn => {
-                                    btn.addEventListener('click', async () => {
-                                        const id = btn.dataset.id;
-                                        if (!confirm('Delete this course and all its lectures & notes?'))
-                                            return;
-                                        try {
-                                            const lecSnap = await getDocs(query(collection(db,
-                                            'lectures')));
-                                            lecSnap.forEach(async d => {
-                                                if (d.data().courseId === id) await deleteDoc(doc(
-                                                    db, 'lectures', d.id));
-                                            });
-                                            const noteSnap = await getDocs(query(collection(db,
-                                            'notes')));
-                                            noteSnap.forEach(async d => {
-                                                if (d.data().courseId === id) await deleteDoc(doc(
-                                                    db, 'notes', d.id));
-                                            });
-                                            await deleteDoc(doc(db, 'courses', id));
-                                            await renderAdminCourses();
-                                            document.getElementById('addLectureCard').style.display =
-                                            'none';
-                                            document.getElementById('addNoteCard').style.display =
-                                            'none';
-                                            document.getElementById('manageItemsCard').style
-                                            .display = 'none';
-                                            alert('Course deleted.');
-                                        } catch (err) { alert('Error: ' + err.message); }
+                                        btn.style.borderColor = 'var(--accent)';
+                                        btn.style.background = 'rgba(230,126,34,0.1)';
                                     });
                                 });
 
                             } catch (err) {
                                 adminCourseList.innerHTML =
-                                    `<li style="color:red;text-align:center;padding:20px;">Error: ${err.message}</li>`;
+                                    `<li style="color:#e57373;text-align:center;padding:20px;">Error: ${err.message}</li>`;
                             }
                         }
 
@@ -815,19 +772,19 @@
                                 let html = `
                                     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
                                         <div>
-                                            <h4 style="font-weight:600;color:var(--navy);margin-bottom:10px;"><i class="fas fa-video" style="color:var(--gold);"></i> Lectures (${lectures.length})</h4>
-                                            <ul class="admin-list" style="border:1px solid var(--gray-200);border-radius:var(--radius-sm);">
+                                            <h4 style="font-weight:600;color:var(--text-primary);margin-bottom:10px;"><i class="fas fa-video" style="color:var(--accent);"></i> Lectures (${lectures.length})</h4>
+                                            <ul class="admin-list" style="border:1px solid var(--border-color);border-radius:var(--radius-sm);">
                                 `;
                                 if (lectures.length === 0) {
-                                    html += `<li style="color:var(--gray-400);text-align:center;">No lectures</li>`;
+                                    html += `<li style="color:var(--text-muted);text-align:center;">No lectures</li>`;
                                 } else {
                                     lectures.forEach((lec, idx) => {
                                         html += `
                                             <li>
                                                 <div class="info">
-                                                    <span style="font-weight:600;color:var(--gold);min-width:28px;">${idx+1}</span>
+                                                    <span style="font-weight:600;color:var(--accent);min-width:28px;">${idx+1}</span>
                                                     <span class="name">${lec.title || 'Lecture ' + (idx+1)}</span>
-                                                    ${lec.videoUrl ? `<span style="font-size:0.7rem;color:var(--gray-400);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${lec.videoUrl.substring(0,30)}...</span>` : ''}
+                                                    ${lec.videoUrl ? `<span style="font-size:0.7rem;color:var(--text-muted);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${lec.videoUrl.substring(0,30)}...</span>` : ''}
                                                 </div>
                                                 <div class="actions">
                                                     <button class="danger lecture-delete-btn" data-id="${lec.id}"><i class="fas fa-trash"></i></button>
@@ -836,17 +793,17 @@
                                         `;
                                     });
                                 }
-                                html += `</ul></div><div><h4 style="font-weight:600;color:var(--navy);margin-bottom:10px;"><i class="fas fa-file-pdf" style="color:var(--gold);"></i> Notes (${notes.length})</h4>
-                                        <ul class="admin-list" style="border:1px solid var(--gray-200);border-radius:var(--radius-sm);">
+                                html += `</ul></div><div><h4 style="font-weight:600;color:var(--text-primary);margin-bottom:10px;"><i class="fas fa-file-pdf" style="color:var(--accent);"></i> Notes (${notes.length})</h4>
+                                        <ul class="admin-list" style="border:1px solid var(--border-color);border-radius:var(--radius-sm);">
                                 `;
                                 if (notes.length === 0) {
-                                    html += `<li style="color:var(--gray-400);text-align:center;">No notes</li>`;
+                                    html += `<li style="color:var(--text-muted);text-align:center;">No notes</li>`;
                                 } else {
                                     notes.forEach((note, idx) => {
                                         html += `
                                             <li>
                                                 <div class="info">
-                                                    <span style="font-weight:600;color:var(--gold);min-width:28px;">${idx+1}</span>
+                                                    <span style="font-weight:600;color:var(--accent);min-width:28px;">${idx+1}</span>
                                                     <span class="name">${note.title || 'Note ' + (idx+1)}</span>
                                                 </div>
                                                 <div class="actions">
@@ -882,36 +839,9 @@
                                 });
 
                             } catch (err) {
-                                container.innerHTML = `<p style="color:red;">Error: ${err.message}</p>`;
+                                container.innerHTML = `<p style="color:#e57373;">Error: ${err.message}</p>`;
                             }
                         }
-
-                        // ---------- Add Course ----------
-                        document.getElementById('addCourseForm').addEventListener('submit', async (e) => {
-                            e.preventDefault();
-                            const name = document.getElementById('courseName').value.trim();
-                            const file = document.getElementById('courseBanner').files[0];
-                            if (!name || !file) return;
-
-                            try {
-                                const storageRef = ref(storage, `banners/${Date.now()}_${file.name}`);
-                                await uploadBytes(storageRef, file);
-                                const bannerUrl = await getDownloadURL(storageRef);
-
-                                await addDoc(collection(db, 'courses'), {
-                                    name,
-                                    bannerUrl,
-                                    createdAt: serverTimestamp()
-                                });
-
-                                document.getElementById('courseName').value = '';
-                                document.getElementById('courseBanner').value = '';
-                                await renderAdminCourses();
-                                alert('Course created successfully!');
-                            } catch (err) {
-                                alert('Error: ' + err.message);
-                            }
-                        });
 
                         // ---------- Fetch Video from StudyBeepro ----------
                         document.getElementById('fetchVideoBtn').addEventListener('click', async () => {
@@ -1013,19 +943,24 @@
                             }
                         });
 
-                        // ---------- Add Note ----------
+                        // ---------- Add Note (FIXED: proper PDF upload) ----------
                         document.getElementById('addNoteForm').addEventListener('submit', async (e) => {
                             e.preventDefault();
                             const courseId = document.getElementById('noteCourseId').value;
                             const title = document.getElementById('noteTitle').value.trim();
                             const file = document.getElementById('notePdf').files[0];
-                            if (!courseId || !title || !file) return;
+                            if (!courseId || !title || !file) {
+                                alert('Please fill all fields and select a PDF file.');
+                                return;
+                            }
 
                             try {
+                                // Upload PDF to Firebase Storage
                                 const storageRef = ref(storage, `notes/${Date.now()}_${file.name}`);
                                 await uploadBytes(storageRef, file);
                                 const pdfUrl = await getDownloadURL(storageRef);
 
+                                // Get max order
                                 const q = query(collection(db, 'notes'), orderBy('order', 'desc'));
                                 const snap = await getDocs(q);
                                 let maxOrder = 0;
@@ -1044,9 +979,10 @@
                                 document.getElementById('notePdf').value = '';
                                 await renderAdminCourses();
                                 await renderManageItems(courseId);
-                                alert('Note added!');
+                                alert('Note added successfully!');
                             } catch (err) {
-                                alert('Error: ' + err.message);
+                                alert('Error adding note: ' + err.message);
+                                console.error(err);
                             }
                         });
 
@@ -1056,7 +992,7 @@
                             document.getElementById('addNoteCard').style.display = 'none';
                             document.getElementById('manageItemsCard').style.display = 'none';
                             document.querySelectorAll('#adminCourseList .course-select-btn').forEach(b => {
-                                b.style.borderColor = 'var(--gray-200)';
+                                b.style.borderColor = 'var(--border-color)';
                                 b.style.background = 'transparent';
                             });
                         });

@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin – Infinityamit</title>
+    <link rel="canonical" href="https://infinityamit.verce.app/admin.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ----- RESET & BASE ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --navy: #0f0f1a;
+            --navy-light: #1a1a2e;
+            --gold: #c9a84c;
+            --gold-light: #e8d5a3;
+            --gold-glow: rgba(201, 168, 76, 0.25);
+            --cream: #f8f6f0;
+            --cream-dark: #ede9df;
+            --white: #ffffff;
+            --gray-100: #f3f1ec;
+            --gray-200: #e5e2d9;
+            --gray-300: #ccc7bb;
+            --gray-400: #9a958a;
+            --gray-500: #7a756a;
+            --gray-600: #5a554a;
+            --gray-700: #3d3a32;
+            --gray-800: #2a2822;
+            --shadow: 0 8px 32px rgba(15, 15, 26, 0.12);
+            --shadow-hover: 0 16px 48px rgba(15, 15, 26, 0.18);
+            --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --nav-height: 72px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--gray-800);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ----- HEADER ----- */
+        .header {
+            background: var(--navy);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(15, 15, 26, 0.4);
+            border-bottom: 2px solid var(--gold);
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+        }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 20px;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+        .logo span {
+            color: var(--gold);
+        }
+        .header-nav a {
+            color: var(--gray-200);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-left: 28px;
+            transition: color var(--transition);
+        }
+        .header-nav a:hover {
+            color: var(--white);
+        }
+
+        /* ----- BUTTONS ----- */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 32px;
+            border-radius: 50px;
+            transition: all var(--transition);
+            box-shadow: 0 4px 16px var(--gold-glow);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: #dbb95c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px var(--gold-glow);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--navy-light);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 32px;
+            border-radius: 50px;
+            transition: all var(--transition);
+        }
+        .btn-secondary:hover {
+            background: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(15, 15, 26, 0.2);
+        }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 12px 28px;
+            border-radius: 50px;
+            transition: all var(--transition);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+        .btn-sm {
+            padding: 8px 18px;
+            font-size: 0.8rem;
+        }
+
+        /* ----- ADMIN LAYOUT ----- */
+        .admin-layout {
+            padding: 40px 0 64px;
+        }
+        .admin-layout .sub {
+            color: var(--gray-600);
+            margin-bottom: 32px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2.4rem;
+            color: var(--navy);
+            margin-bottom: 0.3rem;
+        }
+        .section-title span {
+            color: var(--gold);
+        }
+
+        .admin-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 28px 32px;
+            border: 1px solid var(--gray-200);
+            margin-bottom: 28px;
+        }
+        .admin-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 18px;
+        }
+        .admin-card .form-group {
+            margin-bottom: 16px;
+        }
+        .admin-card .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-bottom: 4px;
+        }
+        .admin-card .form-group input,
+        .admin-card .form-group textarea,
+        .admin-card .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border var(--transition);
+            background: var(--cream);
+        }
+        .admin-card .form-group input:focus,
+        .admin-card .form-group textarea:focus,
+        .admin-card .form-group select:focus {
+            border-color: var(--gold);
+            outline: none;
+            background: var(--white);
+        }
+        .admin-card .form-group input[type="file"] {
+            padding: 10px 12px;
+            background: var(--cream);
+        }
+        .admin-card .fetch-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+        }
+        .admin-card .fetch-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        .admin-card .fetch-row .btn-primary {
+            margin-top: 0;
+            padding: 12px 24px;
+            white-space: nowrap;
+        }
+        .fetch-status {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            display: none;
+        }
+        .fetch-status.success {
+            display: block;
+            background: #e6f4e6;
+            color: #1a6e1a;
+        }
+        .fetch-status.error {
+            display: block;
+            background: #fce8e8;
+            color: #a13333;
+        }
+        .fetch-status.loading {
+            display: block;
+            background: #e8edf5;
+            color: #2a4a7a;
+        }
+
+        .admin-list {
+            list-style: none;
+            padding: 0;
+        }
+        .admin-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--gray-200);
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .admin-list li:last-child {
+            border-bottom: none;
+        }
+        .admin-list li .info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+        .admin-list li .info .thumb {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
+            background: var(--navy-light);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .admin-list li .info .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .admin-list li .info .thumb .placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-light);
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+        .admin-list li .info .name {
+            font-weight: 500;
+        }
+        .admin-list li .info .meta {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+        }
+        .admin-list li .actions {
+            display: flex;
+            gap: 8px;
+        }
+        .admin-list li .actions button {
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all var(--transition);
+            border: 1px solid var(--gray-200);
+            background: var(--cream);
+            color: var(--gray-600);
+        }
+        .admin-list li .actions button:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .admin-list li .actions button.danger:hover {
+            border-color: #d14a4a;
+            color: #d14a4a;
+        }
+
+        /* ----- FOOTER ----- */
+        .footer {
+            background: var(--navy);
+            color: var(--gray-400);
+            padding: 36px 0 24px;
+            border-top: 2px solid var(--gold);
+        }
+        .footer .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px 24px;
+        }
+        .footer .logo-sm {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--white);
+        }
+        .footer .logo-sm span {
+            color: var(--gold);
+        }
+        .footer .copy {
+            font-size: 0.8rem;
+        }
+        .footer .copy a {
+            color: var(--gold);
+            font-weight: 500;
+        }
+        .footer .copy a:hover {
+            text-decoration: underline;
+        }
+
+        /* ----- PASSWORD GATE ----- */
+        .password-gate {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(165deg, var(--navy), var(--navy-light));
+            padding: 24px;
+        }
+        .password-gate .gate-box {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 48px 40px;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: var(--shadow-dark);
+            border: 2px solid var(--gold);
+            text-align: center;
+        }
+        .password-gate .gate-box .lock-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+        .password-gate .gate-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+        .password-gate .gate-box h2 span {
+            color: var(--gold);
+        }
+        .password-gate .gate-box p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+        .password-gate .gate-box .form-group {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+        .password-gate .gate-box .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-bottom: 4px;
+        }
+        .password-gate .gate-box .form-group input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border var(--transition);
+            background: var(--cream);
+        }
+        .password-gate .gate-box .form-group input:focus {
+            border-color: var(--gold);
+            outline: none;
+            background: var(--white);
+        }
+        .password-gate .gate-box .error-msg {
+            color: #d14a4a;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            display: none;
+        }
+        .password-gate .gate-box .error-msg.show {
+            display: block;
+        }
+        .password-gate .gate-box .btn-primary {
+            width: 100%;
+            justify-content: center;
+            padding: 16px;
+            font-size: 1rem;
+        }
+
+        #adminContent {
+            display: none;
+        }
+        #adminContent.visible {
+            display: block;
+        }
+        .password-gate.hidden {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .admin-card {
+                padding: 20px;
+            }
+            .admin-card .fetch-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .admin-card .fetch-row .btn-primary {
+                align-self: flex-start;
+            }
+            .password-gate .gate-box {
+                padding: 32px 24px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+        }
+        @media (max-width: 480px) {
+            .password-gate .gate-box h2 {
+                font-size: 1.3rem;
+            }
+            .password-gate .gate-box .lock-icon {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- PASSWORD GATE -->
+    <!-- ============================================================ -->
+    <div class="password-gate" id="passwordGate">
+        <div class="gate-box">
+            <div class="lock-icon"><i class="fas fa-lock"></i></div>
+            <h2>Admin <span>Access</span></h2>
+            <p>Please enter the password to access the admin panel.</p>
+            <div class="form-group">
+                <label for="passwordInput">Password</label>
+                <input type="password" id="passwordInput" placeholder="Enter password" autofocus />
+            </div>
+            <div class="error-msg" id="errorMsg">Incorrect password. Please try again.</div>
+            <button class="btn-primary" id="unlockBtn"><i class="fas fa-unlock"></i> Unlock</button>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ADMIN CONTENT -->
+    <!-- ============================================================ -->
+    <div id="adminContent">
+        <header class="header">
+            <div class="container">
+                <a href="/" class="logo">Infinity<span>amit</span></a>
+                <nav class="header-nav">
+                    <a href="/">Home</a>
+                </nav>
+            </div>
+        </header>
+
+        <section class="admin-layout">
+            <div class="container">
+                <h2 class="section-title">Admin <span>Panel</span></h2>
+                <p class="sub">Manage courses, lectures, and notes</p>
+
+                <!-- Add Course -->
+                <div class="admin-card">
+                    <h3><i class="fas fa-plus-circle" style="color:var(--gold);"></i> Add New Course</h3>
+                    <form id="addCourseForm">
+                        <div class="form-group">
+                            <label>Course Name</label>
+                            <input type="text" id="courseName" placeholder="e.g. Web Development Masterclass" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Banner Image (upload)</label>
+                            <input type="file" id="courseBanner" accept="image/*" required />
+                        </div>
+                        <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Create Course</button>
+                    </form>
+                </div>
+
+                <!-- Course List -->
+                <div class="admin-card">
+                    <h3><i class="fas fa-list" style="color:var(--gold);"></i> All Courses</h3>
+                    <ul class="admin-list" id="adminCourseList">
+                        <li style="color:var(--gray-400);text-align:center;padding:20px;">Loading courses...</li>
+                    </ul>
+                </div>
+
+                <!-- Add Lecture -->
+                <div class="admin-card" id="addLectureCard" style="display:none;">
+                    <h3><i class="fas fa-video" style="color:var(--gold);"></i> Add Lecture to <span id="lectureCourseName">Course</span></h3>
+                    <form id="addLectureForm">
+                        <input type="hidden" id="lectureCourseId" />
+                        <div class="form-group">
+                            <label>Lecture Title</label>
+                            <input type="text" id="lectureTitle" placeholder="e.g. Introduction" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Fetch from StudyBeepro (optional)</label>
+                            <div class="fetch-row">
+                                <div class="form-group" style="flex:1;margin-bottom:0;">
+                                    <input type="url" id="studyBeeproUrl" placeholder="https://studybeepro.in/nt/play?courseId=190&contentId=22059" />
+                                </div>
+                                <button type="button" class="btn-primary btn-sm" id="fetchVideoBtn">
+                                    <i class="fas fa-cloud-download-alt"></i> Fetch
+                                </button>
+                            </div>
+                            <div class="fetch-status" id="fetchStatus"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Video URL (direct MP4 or .m3u8)</label>
+                            <input type="url" id="lectureUrl" placeholder="https://example.com/video.mp4" required />
+                        </div>
+                        <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Add Lecture</button>
+                    </form>
+                </div>
+
+                <!-- Add Note -->
+                <div class="admin-card" id="addNoteCard" style="display:none;">
+                    <h3><i class="fas fa-file-pdf" style="color:var(--gold);"></i> Add Note to <span id="noteCourseName">Course</span></h3>
+                    <form id="addNoteForm">
+                        <input type="hidden" id="noteCourseId" />
+                        <div class="form-group">
+                            <label>Note Title</label>
+                            <input type="text" id="noteTitle" placeholder="e.g. Chapter 1 Summary" required />
+                        </div>
+                        <div class="form-group">
+                            <label>PDF File (upload)</label>
+                            <input type="file" id="notePdf" accept=".pdf" required />
+                        </div>
+                        <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Add Note</button>
+                    </form>
+                </div>
+
+                <!-- Manage Items -->
+                <div class="admin-card" id="manageItemsCard" style="display:none;">
+                    <h3><i class="fas fa-cog" style="color:var(--gold);"></i> Manage <span id="manageCourseName">Course</span></h3>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
+                        <button class="btn-outline" id="refreshItemsBtn"><i class="fas fa-sync"></i> Refresh</button>
+                        <button class="btn-secondary" id="clearSelectionBtn"><i class="fas fa-times"></i> Clear Selection</button>
+                    </div>
+                    <div id="manageItemsList">
+                        <p style="color:var(--gray-400);">Select a course from the list above to manage its lectures and notes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="logo-sm">Infinity<span>amit</span></div>
+                <div class="copy">&copy; 2026 Infinityamit. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SCRIPTS -->
+    <!-- ============================================================ -->
+    <script type="importmap">
+        {
+            "imports": {
+                "firebase/app": "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js",
+                "firebase/firestore": "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js",
+                "firebase/storage": "https://www.gstatic.com/firebasejs/10.14.0/firebase-storage.js"
+            }
+        }
+    </script>
+    <script type="module">
+        // ----- PASSWORD PROTECTION -----
+        const CORRECT_PASSWORD = 'Infinityamit@77';
+        const gate = document.getElementById('passwordGate');
+        const content = document.getElementById('adminContent');
+        const passwordInput = document.getElementById('passwordInput');
+        const unlockBtn = document.getElementById('unlockBtn');
+        const errorMsg = document.getElementById('errorMsg');
+
+        if (sessionStorage.getItem('adminAuthenticated') === 'true') {
+            gate.classList.add('hidden');
+            content.classList.add('visible');
+            loadAdminScripts();
+        }
+
+        function attemptUnlock() {
+            if (passwordInput.value === CORRECT_PASSWORD) {
+                sessionStorage.setItem('adminAuthenticated', 'true');
+                gate.classList.add('hidden');
+                content.classList.add('visible');
+                errorMsg.classList.remove('show');
+                passwordInput.value = '';
+                loadAdminScripts();
+            } else {
+                errorMsg.classList.add('show');
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        }
+
+        unlockBtn.addEventListener('click', attemptUnlock);
+        passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') attemptUnlock(); });
+
+        // ---------- ADMIN SCRIPTS ----------
+        function loadAdminScripts() {
+            import('firebase/app').then(({ initializeApp }) => {
+                import('firebase/firestore').then(({ getFirestore, collection, query, orderBy, getDocs, addDoc,
+                        deleteDoc, doc, serverTimestamp }) => {
+                    import('firebase/storage').then(({ getStorage, ref, uploadBytes, getDownloadURL }) => {
+
+                        const firebaseConfig = {
+                            apiKey: "AIzaSyA63VMF7C_qxwqAJ7r-4LHBV-u7NY4_45o",
+                            authDomain: "infinityamit-583b2.firebaseapp.com",
+                            projectId: "infinityamit-583b2",
+                            storageBucket: "infinityamit-583b2.firebasestorage.app",
+                            messagingSenderId: "895503707512",
+                            appId: "1:895503707512:web:c4abd1a1d768b37c4b6c8d"
+                        };
+
+                        const app = initializeApp(firebaseConfig);
+                        const db = getFirestore(app);
+                        const storage = getStorage(app);
+
+                        const adminCourseList = document.getElementById('adminCourseList');
+
+                        // ---------- Render Admin Courses ----------
+                        async function renderAdminCourses() {
+                            if (!adminCourseList) return;
+                            try {
+                                const q = query(collection(db, 'courses'), orderBy('createdAt', 'desc'));
+                                const snap = await getDocs(q);
+                                if (snap.empty) {
+                                    adminCourseList.innerHTML =
+                                        `<li style="color:var(--gray-400);text-align:center;padding:20px;">No courses yet. Add one above.</li>`;
+                                    return;
+                                }
+                                let html = '';
+                                snap.forEach(doc => {
+                                    const c = { id: doc.id, ...doc.data() };
+                                    const thumb = c.bannerUrl ?
+                                        `<img src="${c.bannerUrl}" alt="${c.name}" />` :
+                                        `<div class="placeholder">${c.name.charAt(0).toUpperCase()}</div>`;
+                                    html += `
+                                        <li>
+                                            <div class="info">
+                                                <div class="thumb">${thumb}</div>
+                                                <div>
+                                                    <div class="name">${c.name}</div>
+                                                    <div class="meta">${c.id}</div>
+                                                </div>
+                                            </div>
+                                            <div class="actions">
+                                                <button class="course-select-btn" data-id="${c.id}" data-name="${c.name}">
+                                                    <i class="fas fa-edit"></i> Manage
+                                                </button>
+                                                <button class="danger course-delete-btn" data-id="${c.id}">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </li>
+                                    `;
+                                });
+                                adminCourseList.innerHTML = html;
+
+                                document.querySelectorAll('.course-select-btn').forEach(btn => {
+                                    btn.addEventListener('click', () => {
+                                        const id = btn.dataset.id;
+                                        const name = btn.dataset.name;
+                                        selectCourseForManagement(id, name);
+                                        document.querySelectorAll('.course-select-btn').forEach(b => {
+                                            b.style.borderColor = 'var(--gray-200)';
+                                            b.style.background = 'transparent';
+                                        });
+                                        btn.style.borderColor = 'var(--gold)';
+                                        btn.style.background = 'rgba(201,168,76,0.1)';
+                                    });
+                                });
+
+                                document.querySelectorAll('.course-delete-btn').forEach(btn => {
+                                    btn.addEventListener('click', async () => {
+                                        const id = btn.dataset.id;
+                                        if (!confirm('Delete this course and all its lectures & notes?'))
+                                            return;
+                                        try {
+                                            const lecSnap = await getDocs(query(collection(db,
+                                            'lectures')));
+                                            lecSnap.forEach(async d => {
+                                                if (d.data().courseId === id) await deleteDoc(doc(
+                                                    db, 'lectures', d.id));
+                                            });
+                                            const noteSnap = await getDocs(query(collection(db,
+                                            'notes')));
+                                            noteSnap.forEach(async d => {
+                                                if (d.data().courseId === id) await deleteDoc(doc(
+                                                    db, 'notes', d.id));
+                                            });
+                                            await deleteDoc(doc(db, 'courses', id));
+                                            await renderAdminCourses();
+                                            document.getElementById('addLectureCard').style.display =
+                                            'none';
+                                            document.getElementById('addNoteCard').style.display =
+                                            'none';
+                                            document.getElementById('manageItemsCard').style
+                                            .display = 'none';
+                                            alert('Course deleted.');
+                                        } catch (err) { alert('Error: ' + err.message); }
+                                    });
+                                });
+
+                            } catch (err) {
+                                adminCourseList.innerHTML =
+                                    `<li style="color:red;text-align:center;padding:20px;">Error: ${err.message}</li>`;
+                            }
+                        }
+
+                        // ---------- Select Course ----------
+                        async function selectCourseForManagement(courseId, courseName) {
+                            document.getElementById('lectureCourseId').value = courseId;
+                            document.getElementById('noteCourseId').value = courseId;
+                            document.getElementById('lectureCourseName').textContent = courseName;
+                            document.getElementById('noteCourseName').textContent = courseName;
+                            document.getElementById('manageCourseName').textContent = courseName;
+
+                            document.getElementById('addLectureCard').style.display = 'block';
+                            document.getElementById('addNoteCard').style.display = 'block';
+                            document.getElementById('manageItemsCard').style.display = 'block';
+
+                            await renderManageItems(courseId);
+                        }
+
+                        // ---------- Render Manage Items ----------
+                        async function renderManageItems(courseId) {
+                            const container = document.getElementById('manageItemsList');
+                            if (!container) return;
+                            try {
+                                const lecSnap = await getDocs(query(collection(db, 'lectures'), orderBy('order',
+                                'asc')));
+                                const noteSnap = await getDocs(query(collection(db, 'notes'), orderBy('order',
+                                'asc')));
+
+                                const lectures = [];
+                                lecSnap.forEach(d => { if (d.data().courseId === courseId) lectures.push({ id: d
+                                        .id, ...d.data() }); });
+                                const notes = [];
+                                noteSnap.forEach(d => { if (d.data().courseId === courseId) notes.push({ id: d.id,
+                                        ...d.data() }); });
+
+                                let html = `
+                                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+                                        <div>
+                                            <h4 style="font-weight:600;color:var(--navy);margin-bottom:10px;"><i class="fas fa-video" style="color:var(--gold);"></i> Lectures (${lectures.length})</h4>
+                                            <ul class="admin-list" style="border:1px solid var(--gray-200);border-radius:var(--radius-sm);">
+                                `;
+                                if (lectures.length === 0) {
+                                    html += `<li style="color:var(--gray-400);text-align:center;">No lectures</li>`;
+                                } else {
+                                    lectures.forEach((lec, idx) => {
+                                        html += `
+                                            <li>
+                                                <div class="info">
+                                                    <span style="font-weight:600;color:var(--gold);min-width:28px;">${idx+1}</span>
+                                                    <span class="name">${lec.title || 'Lecture ' + (idx+1)}</span>
+                                                    ${lec.videoUrl ? `<span style="font-size:0.7rem;color:var(--gray-400);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${lec.videoUrl.substring(0,30)}...</span>` : ''}
+                                                </div>
+                                                <div class="actions">
+                                                    <button class="danger lecture-delete-btn" data-id="${lec.id}"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </li>
+                                        `;
+                                    });
+                                }
+                                html += `</ul></div><div><h4 style="font-weight:600;color:var(--navy);margin-bottom:10px;"><i class="fas fa-file-pdf" style="color:var(--gold);"></i> Notes (${notes.length})</h4>
+                                        <ul class="admin-list" style="border:1px solid var(--gray-200);border-radius:var(--radius-sm);">
+                                `;
+                                if (notes.length === 0) {
+                                    html += `<li style="color:var(--gray-400);text-align:center;">No notes</li>`;
+                                } else {
+                                    notes.forEach((note, idx) => {
+                                        html += `
+                                            <li>
+                                                <div class="info">
+                                                    <span style="font-weight:600;color:var(--gold);min-width:28px;">${idx+1}</span>
+                                                    <span class="name">${note.title || 'Note ' + (idx+1)}</span>
+                                                </div>
+                                                <div class="actions">
+                                                    <button class="danger note-delete-btn" data-id="${note.id}"><i class="fas fa-trash"></i></button>
+                                                </div>
+                                            </li>
+                                        `;
+                                    });
+                                }
+                                html += `</ul></div></div>`;
+                                container.innerHTML = html;
+
+                                document.querySelectorAll('.lecture-delete-btn').forEach(btn => {
+                                    btn.addEventListener('click', async () => {
+                                        if (!confirm('Delete this lecture?')) return;
+                                        try {
+                                            await deleteDoc(doc(db, 'lectures', btn.dataset.id));
+                                            await renderManageItems(courseId);
+                                            await renderAdminCourses();
+                                        } catch (err) { alert('Error: ' + err.message); }
+                                    });
+                                });
+
+                                document.querySelectorAll('.note-delete-btn').forEach(btn => {
+                                    btn.addEventListener('click', async () => {
+                                        if (!confirm('Delete this note?')) return;
+                                        try {
+                                            await deleteDoc(doc(db, 'notes', btn.dataset.id));
+                                            await renderManageItems(courseId);
+                                            await renderAdminCourses();
+                                        } catch (err) { alert('Error: ' + err.message); }
+                                    });
+                                });
+
+                            } catch (err) {
+                                container.innerHTML = `<p style="color:red;">Error: ${err.message}</p>`;
+                            }
+                        }
+
+                        // ---------- Add Course ----------
+                        document.getElementById('addCourseForm').addEventListener('submit', async (e) => {
+                            e.preventDefault();
+                            const name = document.getElementById('courseName').value.trim();
+                            const file = document.getElementById('courseBanner').files[0];
+                            if (!name || !file) return;
+
+                            try {
+                                const storageRef = ref(storage, `banners/${Date.now()}_${file.name}`);
+                                await uploadBytes(storageRef, file);
+                                const bannerUrl = await getDownloadURL(storageRef);
+
+                                await addDoc(collection(db, 'courses'), {
+                                    name,
+                                    bannerUrl,
+                                    createdAt: serverTimestamp()
+                                });
+
+                                document.getElementById('courseName').value = '';
+                                document.getElementById('courseBanner').value = '';
+                                await renderAdminCourses();
+                                alert('Course created successfully!');
+                            } catch (err) {
+                                alert('Error: ' + err.message);
+                            }
+                        });
+
+                        // ---------- Fetch Video from StudyBeepro ----------
+                        document.getElementById('fetchVideoBtn').addEventListener('click', async () => {
+                            const urlInput = document.getElementById('studyBeeproUrl');
+                            const statusEl = document.getElementById('fetchStatus');
+                            const url = urlInput.value.trim();
+                            if (!url) {
+                                statusEl.className = 'fetch-status error';
+                                statusEl.textContent = 'Please paste a valid StudyBeepro URL.';
+                                statusEl.style.display = 'block';
+                                return;
+                            }
+
+                            statusEl.className = 'fetch-status loading';
+                            statusEl.textContent = 'Fetching video URL...';
+                            statusEl.style.display = 'block';
+
+                            try {
+                                const courseMatch = url.match(/courseId=(\d+)/);
+                                const contentMatch = url.match(/contentId=(\d+)/);
+                                if (!courseMatch || !contentMatch) {
+                                    statusEl.className = 'fetch-status error';
+                                    statusEl.textContent = 'Could not extract courseId or contentId from URL.';
+                                    return;
+                                }
+                                const courseId = courseMatch[1];
+                                const contentId = contentMatch[1];
+
+                                const apiUrl =
+                                    `https://key.iownprince5.workers.dev/?content_id=${contentId}&course_id=${courseId}`;
+                                const response = await fetch(apiUrl);
+                                if (!response.ok) throw new Error(`API error: ${response.status}`);
+                                const data = await response.json();
+
+                                let videoUrl = null;
+                                if (data && data.decryptedData && data.decryptedData.file_url) {
+                                    videoUrl = data.decryptedData.file_url;
+                                } else if (data && data.file_url) {
+                                    videoUrl = data.file_url;
+                                } else if (data && data.url) {
+                                    videoUrl = data.url;
+                                } else {
+                                    const str = JSON.stringify(data);
+                                    const urlMatch = str.match(/(https?:\/\/[^\s"']+\.m3u8[^\s"']*)/i);
+                                    if (urlMatch) videoUrl = urlMatch[1];
+                                }
+
+                                if (!videoUrl) {
+                                    statusEl.className = 'fetch-status error';
+                                    statusEl.textContent = 'Could not extract video URL from API response.';
+                                    return;
+                                }
+
+                                document.getElementById('lectureUrl').value = videoUrl;
+                                statusEl.className = 'fetch-status success';
+                                statusEl.textContent = 'Video URL fetched and populated successfully!';
+                                statusEl.style.display = 'block';
+
+                            } catch (err) {
+                                statusEl.className = 'fetch-status error';
+                                statusEl.textContent = 'Error: ' + err.message;
+                                statusEl.style.display = 'block';
+                                console.error(err);
+                            }
+                        });
+
+                        // ---------- Add Lecture ----------
+                        document.getElementById('addLectureForm').addEventListener('submit', async (e) => {
+                            e.preventDefault();
+                            const courseId = document.getElementById('lectureCourseId').value;
+                            const title = document.getElementById('lectureTitle').value.trim();
+                            const videoUrl = document.getElementById('lectureUrl').value.trim();
+                            if (!courseId || !title || !videoUrl) return;
+
+                            try {
+                                const q = query(collection(db, 'lectures'), orderBy('order', 'desc'));
+                                const snap = await getDocs(q);
+                                let maxOrder = 0;
+                                snap.forEach(d => { if (d.data().courseId === courseId) maxOrder = Math.max(
+                                        maxOrder, d.data().order || 0); });
+
+                                await addDoc(collection(db, 'lectures'), {
+                                    courseId,
+                                    title,
+                                    videoUrl,
+                                    order: maxOrder + 1,
+                                    createdAt: serverTimestamp()
+                                });
+
+                                document.getElementById('lectureTitle').value = '';
+                                document.getElementById('lectureUrl').value = '';
+                                document.getElementById('studyBeeproUrl').value = '';
+                                document.getElementById('fetchStatus').style.display = 'none';
+                                await renderAdminCourses();
+                                await renderManageItems(courseId);
+                                alert('Lecture added!');
+                            } catch (err) {
+                                alert('Error: ' + err.message);
+                            }
+                        });
+
+                        // ---------- Add Note ----------
+                        document.getElementById('addNoteForm').addEventListener('submit', async (e) => {
+                            e.preventDefault();
+                            const courseId = document.getElementById('noteCourseId').value;
+                            const title = document.getElementById('noteTitle').value.trim();
+                            const file = document.getElementById('notePdf').files[0];
+                            if (!courseId || !title || !file) return;
+
+                            try {
+                                const storageRef = ref(storage, `notes/${Date.now()}_${file.name}`);
+                                await uploadBytes(storageRef, file);
+                                const pdfUrl = await getDownloadURL(storageRef);
+
+                                const q = query(collection(db, 'notes'), orderBy('order', 'desc'));
+                                const snap = await getDocs(q);
+                                let maxOrder = 0;
+                                snap.forEach(d => { if (d.data().courseId === courseId) maxOrder = Math.max(
+                                        maxOrder, d.data().order || 0); });
+
+                                await addDoc(collection(db, 'notes'), {
+                                    courseId,
+                                    title,
+                                    pdfUrl,
+                                    order: maxOrder + 1,
+                                    createdAt: serverTimestamp()
+                                });
+
+                                document.getElementById('noteTitle').value = '';
+                                document.getElementById('notePdf').value = '';
+                                await renderAdminCourses();
+                                await renderManageItems(courseId);
+                                alert('Note added!');
+                            } catch (err) {
+                                alert('Error: ' + err.message);
+                            }
+                        });
+
+                        // ---------- Clear Selection ----------
+                        document.getElementById('clearSelectionBtn').addEventListener('click', () => {
+                            document.getElementById('addLectureCard').style.display = 'none';
+                            document.getElementById('addNoteCard').style.display = 'none';
+                            document.getElementById('manageItemsCard').style.display = 'none';
+                            document.querySelectorAll('#adminCourseList .course-select-btn').forEach(b => {
+                                b.style.borderColor = 'var(--gray-200)';
+                                b.style.background = 'transparent';
+                            });
+                        });
+
+                        document.getElementById('refreshItemsBtn').addEventListener('click', () => {
+                            const courseId = document.getElementById('lectureCourseId').value;
+                            if (courseId) renderManageItems(courseId);
+                        });
+
+                        // ---------- Initial Render ----------
+                        renderAdminCourses();
+
+                        console.log('Admin panel loaded successfully.');
+                    });
+                });
+            }).catch(err => console.error('Failed to load admin scripts:', err));
+        }
+    </script>
+</body>
+</html>

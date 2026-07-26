@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course – Infinityamit</title>
+    <meta name="description" content="Watch course lectures and download notes on Infinityamit." />
+    <link rel="canonical" href="https://infinityamit.verce.app/courses.html" />
+    <meta property="og:title" content="Course – Infinityamit" />
+    <meta property="og:url" content="https://infinityamit.verce.app/courses.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ----- RESET & BASE ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --navy: #0f0f1a;
+            --navy-light: #1a1a2e;
+            --gold: #c9a84c;
+            --gold-light: #e8d5a3;
+            --gold-glow: rgba(201, 168, 76, 0.25);
+            --cream: #f8f6f0;
+            --cream-dark: #ede9df;
+            --white: #ffffff;
+            --gray-100: #f3f1ec;
+            --gray-200: #e5e2d9;
+            --gray-300: #ccc7bb;
+            --gray-400: #9a958a;
+            --gray-500: #7a756a;
+            --gray-600: #5a554a;
+            --gray-700: #3d3a32;
+            --gray-800: #2a2822;
+            --shadow: 0 8px 32px rgba(15, 15, 26, 0.12);
+            --shadow-hover: 0 16px 48px rgba(15, 15, 26, 0.18);
+            --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --nav-height: 72px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--gray-800);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ----- HEADER ----- */
+        .header {
+            background: var(--navy);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(15, 15, 26, 0.4);
+            border-bottom: 2px solid var(--gold);
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+        }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 20px;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+        .logo span {
+            color: var(--gold);
+        }
+        .header-nav a {
+            color: var(--gray-200);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-left: 28px;
+            transition: color var(--transition);
+        }
+        .header-nav a:hover {
+            color: var(--white);
+        }
+
+        /* ----- BUTTONS ----- */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 32px;
+            border-radius: 50px;
+            transition: all var(--transition);
+            box-shadow: 0 4px 16px var(--gold-glow);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: #dbb95c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px var(--gold-glow);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--navy-light);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 32px;
+            border-radius: 50px;
+            transition: all var(--transition);
+        }
+        .btn-secondary:hover {
+            background: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(15, 15, 26, 0.2);
+        }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 12px 28px;
+            border-radius: 50px;
+            transition: all var(--transition);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+        .btn-sm {
+            padding: 8px 18px;
+            font-size: 0.8rem;
+        }
+
+        /* ----- COURSE DETAIL HERO (Full Width Banner) ----- */
+        .course-detail-hero {
+            background: var(--navy);
+            padding: 24px 0 0;
+            border-bottom: 3px solid var(--gold);
+        }
+        .course-detail-hero .hero-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .course-detail-hero .back-link {
+            color: var(--gold);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.95rem;
+            transition: color var(--transition);
+            flex-shrink: 0;
+        }
+        .course-detail-hero .back-link:hover {
+            color: var(--gold-light);
+        }
+        .course-detail-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--white);
+            flex: 1;
+            margin: 0;
+        }
+
+        /* Full Width 16:9 Banner */
+        .course-detail-hero .banner-large {
+            width: calc(100% + 48px);
+            margin-left: -24px;
+            margin-right: -24px;
+            aspect-ratio: 16 / 9;
+            background: var(--navy-light);
+            overflow: hidden;
+            border-radius: 0;
+            border: none;
+            position: relative;
+        }
+        .course-detail-hero .banner-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .course-detail-hero .banner-large .placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--gold-light);
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+        }
+
+        /* ----- TABS & CONTENT ----- */
+        .course-content {
+            padding: 40px 0 64px;
+        }
+        .tabs {
+            display: flex;
+            gap: 4px;
+            border-bottom: 2px solid var(--gray-200);
+            margin-bottom: 32px;
+            background: var(--white);
+            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+            padding: 0 4px;
+        }
+        .tabs button {
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            border-bottom: 3px solid transparent;
+            transition: all var(--transition);
+            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+            background: transparent;
+        }
+        .tabs button:hover {
+            color: var(--navy);
+            background: var(--gray-100);
+        }
+        .tabs button.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+            background: var(--cream);
+        }
+        .tab-panel {
+            display: none;
+            animation: fadeUp 0.35s ease;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lecture-list,
+        .note-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .lecture-item,
+        .note-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 20px;
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--gray-200);
+            transition: all var(--transition);
+            cursor: pointer;
+        }
+        .lecture-item:hover,
+        .note-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 4px 16px rgba(201, 168, 76, 0.08);
+            transform: translateX(4px);
+        }
+        .lecture-item .num,
+        .note-item .num {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--gold);
+            min-width: 32px;
+            text-align: center;
+        }
+        .lecture-item .title,
+        .note-item .title {
+            flex: 1;
+            font-weight: 500;
+        }
+        .lecture-item .badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--gray-400);
+            background: var(--gray-100);
+            padding: 2px 12px;
+            border-radius: 50px;
+        }
+        .empty-message {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--gray-600);
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            border: 1px dashed var(--gray-200);
+        }
+        .empty-message i {
+            font-size: 2rem;
+            color: var(--gray-400);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* ----- FOOTER ----- */
+        .footer {
+            background: var(--navy);
+            color: var(--gray-400);
+            padding: 36px 0 24px;
+            border-top: 2px solid var(--gold);
+        }
+        .footer .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px 24px;
+        }
+        .footer .logo-sm {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--white);
+        }
+        .footer .logo-sm span {
+            color: var(--gold);
+        }
+        .footer .copy {
+            font-size: 0.8rem;
+        }
+        .footer .copy a {
+            color: var(--gold);
+            font-weight: 500;
+        }
+        .footer .copy a:hover {
+            text-decoration: underline;
+        }
+        .footer .sarthak-credit a {
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .footer .sarthak-credit a:hover {
+            text-decoration: underline;
+        }
+
+        /* ----- VIDEO OVERLAY (same as index) ----- */
+        .video-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 15, 26, 0.94);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            backdrop-filter: blur(8px);
+        }
+        .video-overlay.open {
+            display: flex;
+        }
+        .video-overlay .modal {
+            background: var(--navy);
+            border-radius: var(--radius);
+            max-width: 920px;
+            width: 100%;
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+        .video-overlay .modal .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            color: var(--white);
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: transform var(--transition);
+            background: rgba(0, 0, 0, 0.6);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .video-overlay .modal .close-btn:hover {
+            transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .video-overlay .modal .video-title {
+            padding: 12px 20px 4px;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            background: rgba(15, 15, 26, 0.5);
+        }
+        .video-overlay .modal .video-wrapper {
+            position: relative;
+            padding-top: 56.25%;
+            background: #000;
+        }
+        .video-overlay .modal .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            outline: none;
+        }
+        .video-overlay .modal .video-controls {
+            background: rgba(15, 15, 26, 0.96);
+            padding: 10px 16px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .video-overlay .modal .video-controls button {
+            color: var(--white);
+            font-size: 1rem;
+            transition: color var(--transition);
+            background: none;
+            padding: 4px 6px;
+            border-radius: 4px;
+        }
+        .video-overlay .modal .video-controls button:hover {
+            color: var(--gold);
+        }
+        .video-overlay .modal .video-controls .time {
+            color: var(--gray-400);
+            font-size: 0.75rem;
+            font-weight: 400;
+            min-width: 80px;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+        .video-overlay .modal .video-controls .progress-wrap {
+            flex: 1;
+            min-width: 80px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+        }
+        .video-overlay .modal .video-controls .progress-wrap .bar {
+            height: 100%;
+            width: 0%;
+            background: var(--gold);
+            border-radius: 4px;
+            transition: width 0.1s linear;
+        }
+        .video-overlay .modal .video-controls .speed-group {
+            display: flex;
+            gap: 3px;
+            margin-left: 2px;
+        }
+        .video-overlay .modal .video-controls .speed-group button {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--gray-400);
+            padding: 2px 7px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid transparent;
+            transition: all var(--transition);
+        }
+        .video-overlay .modal .video-controls .speed-group button:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .video-overlay .modal .video-controls .speed-group button.active {
+            color: var(--gold);
+            border-color: var(--gold);
+            background: rgba(201, 168, 76, 0.12);
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (min-width: 769px) {
+            .course-detail-hero .banner-large {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                border-radius: var(--radius-sm);
+                border: 2px solid var(--gold);
+                margin-top: 8px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .course-detail-hero .hero-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .course-detail-hero h1 {
+                font-size: 1.6rem;
+            }
+            .tabs button {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+            .video-overlay .modal .video-controls {
+                padding: 8px 12px 10px;
+                gap: 6px;
+            }
+            .video-overlay .modal .video-controls button {
+                font-size: 0.85rem;
+                padding: 2px 4px;
+            }
+            .video-overlay .modal .video-controls .time {
+                font-size: 0.65rem;
+                min-width: 60px;
+            }
+            .video-overlay .modal .video-controls .speed-group button {
+                font-size: 0.5rem;
+                padding: 1px 5px;
+            }
+            .video-overlay .modal .close-btn {
+                width: 34px;
+                height: 34px;
+                font-size: 1.2rem;
+                top: 8px;
+                right: 10px;
+            }
+            .video-overlay .modal .video-title {
+                font-size: 0.8rem;
+                padding: 8px 14px 2px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .course-detail-hero .banner-large .placeholder {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- HEADER -->
+    <!-- ============================================================ -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">Infinity<span>amit</span></a>
+            <nav class="header-nav">
+                <a href="/">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- COURSE DETAIL HERO (Full Width Banner) -->
+    <!-- ============================================================ -->
+    <section class="course-detail-hero" id="courseHero">
+        <div class="container">
+            <div class="hero-header">
+                <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> All Courses</a>
+                <h1 id="courseName">Course Title</h1>
+            </div>
+            <!-- Full Width 16:9 Banner -->
+            <div class="banner-large" id="courseBanner">
+                <div class="placeholder">C</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- COURSE CONTENT (Tabs) -->
+    <!-- ============================================================ -->
+    <section class="course-content" id="courseContent">
+        <div class="container">
+            <div class="tabs">
+                <button class="active" data-tab="lectures"><i class="fas fa-video"></i> Lectures</button>
+                <button data-tab="notes"><i class="fas fa-file-pdf"></i> Notes</button>
+            </div>
+            <div class="tab-panel active" id="panel-lectures"></div>
+            <div class="tab-panel" id="panel-notes"></div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="logo-sm">Infinity<span>amit</span></div>
+            <div class="sarthak-credit">Developed by <a href="mailto:sarthak.dev@tuta.io">Sarthak</a></div>
+            <div class="copy">&copy; 2026 Infinityamit. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- VIDEO OVERLAY -->
+    <!-- ============================================================ -->
+    <div class="video-overlay" id="videoOverlay">
+        <div class="modal">
+            <button class="close-btn" id="closeVideo"><i class="fas fa-times"></i></button>
+            <div class="video-title" id="videoTitle">Lecture</div>
+            <div class="video-wrapper">
+                <video id="videoPlayer" src="" preload="metadata" playsinline></video>
+            </div>
+            <div class="video-controls">
+                <button id="playBtn" title="Play / Pause"><i class="fas fa-play"></i></button>
+                <button id="skipBackBtn" title="Skip back 10s"><i class="fas fa-backward"></i> 10</button>
+                <button id="skipForwardBtn" title="Skip forward 10s">10 <i class="fas fa-forward"></i></button>
+                <span class="time" id="timeDisplay">0:00 / 0:00</span>
+                <div class="progress-wrap" id="progressWrap">
+                    <div class="bar" id="progressBar"></div>
+                </div>
+                <div class="speed-group">
+                    <button data-speed="0.75">0.75x</button>
+                    <button data-speed="1" class="active">1x</button>
+                    <button data-speed="1.25">1.25x</button>
+                    <button data-speed="1.5">1.5x</button>
+                    <button data-speed="2">2x</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SCRIPTS -->
+    <!-- ============================================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@0.14.17/dist/hls.min.js">
+    </script>
+    <script type="importmap">
+        {
+            "imports": {
+                "firebase/app": "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js",
+                "firebase/firestore": "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js",
+                "firebase/storage": "https://www.gstatic.com/firebasejs/10.14.0/firebase-storage.js"
+            }
+        }
+    </script>
+    <script type="module">
+        import { initializeApp } from 'firebase/app';
+        import { getFirestore, collection, query, orderBy, getDocs, doc, getDoc } from 'firebase/firestore';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyA63VMF7C_qxwqAJ7r-4LHBV-u7NY4_45o",
+            authDomain: "infinityamit-583b2.firebaseapp.com",
+            projectId: "infinityamit-583b2",
+            storageBucket: "infinityamit-583b2.firebasestorage.app",
+            messagingSenderId: "895503707512",
+            appId: "1:895503707512:web:c4abd1a1d768b37c4b6c8d"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // ----- Video Player (same as index) -----
+        const overlay = document.getElementById('videoOverlay');
+        const video = document.getElementById('videoPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const skipBack = document.getElementById('skipBackBtn');
+        const skipForward = document.getElementById('skipForwardBtn');
+        const timeDisplay = document.getElementById('timeDisplay');
+        const progressWrap = document.getElementById('progressWrap');
+        const progressBar = document.getElementById('progressBar');
+        const closeBtn = document.getElementById('closeVideo');
+        const titleEl = document.getElementById('videoTitle');
+        const speedBtns = document.querySelectorAll('.speed-group button');
+
+        let hlsInstance = null;
+        let isPlaying = false;
+
+        function formatTime(seconds) {
+            if (!seconds || isNaN(seconds)) return '0:00';
+            const m = Math.floor(seconds / 60);
+            const s = Math.floor(seconds % 60);
+            return `${m}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function togglePlay() {
+            if (video.paused) {
+                video.play().catch(() => {});
+                isPlaying = true;
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                video.pause();
+                isPlaying = false;
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+
+        function openVideo(url, title) {
+            if (!url) { alert('No video URL.'); return; }
+            titleEl.textContent = title || 'Lecture';
+            overlay.classList.add('open');
+            if (hlsInstance) { hlsInstance.destroy();
+                hlsInstance = null; }
+            if (url.includes('.m3u8') || url.includes('m3u8')) {
+                if (Hls && Hls.isSupported()) {
+                    hlsInstance = new Hls({ enableWorker: true, lowLatencyMode: true });
+                    hlsInstance.loadSource(url);
+                    hlsInstance.attachMedia(video);
+                    hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
+                        video.play().catch(() => {});
+                        isPlaying = true;
+                        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    });
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = url;
+                    video.play().catch(() => {});
+                    isPlaying = true;
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    alert('HLS not supported.');
+                }
+            } else {
+                video.src = url;
+                video.load();
+                video.play().catch(() => {});
+                isPlaying = true;
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+        }
+
+        function closeVideoFn() {
+            overlay.classList.remove('open');
+            video.pause();
+            isPlaying = false;
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            if (hlsInstance) { hlsInstance.destroy();
+                hlsInstance = null; }
+            video.src = '';
+            titleEl.textContent = 'Lecture';
+        }
+
+        playBtn.addEventListener('click', togglePlay);
+        skipBack.addEventListener('click', () => { video.currentTime = Math.max(0, video.currentTime - 10); });
+        skipForward.addEventListener('click', () => { video.currentTime = Math.min(video.duration || 0, video.currentTime +
+            10); });
+        video.addEventListener('click', togglePlay);
+        video.addEventListener('timeupdate', () => {
+            if (video.duration) {
+                progressBar.style.width = (video.currentTime / video.duration * 100) + '%';
+                timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+            }
+        });
+        video.addEventListener('loadedmetadata', () => {
+            if (video.duration) {
+                timeDisplay.textContent = `0:00 / ${formatTime(video.duration)}`;
+            }
+        });
+        progressWrap.addEventListener('click', (e) => {
+            const rect = progressWrap.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width;
+            if (video.duration) { video.currentTime = x * video.duration; }
+        });
+        speedBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                speedBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                video.playbackRate = parseFloat(btn.dataset.speed);
+            });
+        });
+        closeBtn.addEventListener('click', closeVideoFn);
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) closeVideoFn(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideoFn(); });
+
+        // ----- Load Course -----
+        const params = new URLSearchParams(window.location.search);
+        const courseId = params.get('courseId');
+        if (!courseId) {
+            document.getElementById('panel-lectures').innerHTML =
+                '<div class="empty-message"><i class="fas fa-exclamation-triangle"></i> No course selected.</div>';
+            document.getElementById('panel-notes').innerHTML = '';
+        } else {
+            loadCourse(courseId);
+        }
+
+        async function loadCourse(courseId) {
+            try {
+                const docRef = doc(db, 'courses', courseId);
+                const docSnap = await getDoc(docRef);
+                if (!docSnap.exists()) {
+                    document.getElementById('panel-lectures').innerHTML =
+                    '<div class="empty-message">Course not found.</div>';
+                    return;
+                }
+                const course = { id: docSnap.id, ...docSnap.data() };
+                document.getElementById('courseName').textContent = course.name;
+
+                // Render Full Width Banner
+                const bannerEl = document.getElementById('courseBanner');
+                if (course.bannerUrl) {
+                    bannerEl.innerHTML = `<img src="${course.bannerUrl}" alt="${course.name}" />`;
+                } else {
+                    bannerEl.innerHTML =
+                        `<div class="placeholder">${course.name.charAt(0).toUpperCase()}</div>`;
+                }
+
+                // Load Lectures
+                const lecSnap = await getDocs(query(collection(db, 'lectures'), orderBy('order', 'asc')));
+                const lectures = [];
+                lecSnap.forEach(d => { if (d.data().courseId === courseId) lectures.push({ id: d.id, ...d.data() }); });
+
+                // Load Notes
+                const noteSnap = await getDocs(query(collection(db, 'notes'), orderBy('order', 'asc')));
+                const notes = [];
+                noteSnap.forEach(d => { if (d.data().courseId === courseId) notes.push({ id: d.id, ...d.data() }); });
+
+                // Render Lectures Panel
+                const panelLectures = document.getElementById('panel-lectures');
+                if (lectures.length === 0) {
+                    panelLectures.innerHTML = '<div class="empty-message"><i class="fas fa-video"></i> No lectures yet.</div>';
+                } else {
+                    let html = '<div class="lecture-list">';
+                    lectures.forEach((lec, idx) => {
+                        html += `
+                            <div class="lecture-item" data-video-url="${lec.videoUrl || ''}" data-title="${lec.title || 'Lecture ' + (idx+1)}">
+                                <span class="num">${idx + 1}</span>
+                                <span class="title">${lec.title || 'Lecture ' + (idx+1)}</span>
+                                <span class="badge"><i class="fas fa-play"></i> Watch</span>
+                            </div>
+                        `;
+                    });
+                    html += '</div>';
+                    panelLectures.innerHTML = html;
+                    document.querySelectorAll('.lecture-item').forEach(item => {
+                        item.addEventListener('click', () => {
+                            const url = item.dataset.videoUrl;
+                            const title = item.dataset.title || 'Lecture';
+                            if (!url) { alert('No video URL set.'); return; }
+                            openVideo(url, title);
+                        });
+                    });
+                }
+
+                // Render Notes Panel
+                const panelNotes = document.getElementById('panel-notes');
+                if (notes.length === 0) {
+                    panelNotes.innerHTML = '<div class="empty-message"><i class="fas fa-file-pdf"></i> No notes yet.</div>';
+                } else {
+                    let html = '<div class="note-list">';
+                    notes.forEach((note, idx) => {
+                        const pdfLink = note.pdfUrl ?
+                            `<a href="${note.pdfUrl}" target="_blank" style="color:var(--gold);font-weight:500;"><i class="fas fa-external-link-alt"></i> Open PDF</a>` :
+                            `<span style="color:var(--gray-400);">No file</span>`;
+                        html += `
+                            <div class="note-item">
+                                <span class="num">${idx + 1}</span>
+                                <span class="title">${note.title || 'Note ' + (idx+1)}</span>
+                                ${pdfLink}
+                            </div>
+                        `;
+                    });
+                    html += '</div>';
+                    panelNotes.innerHTML = html;
+                }
+
+                // Tab switching
+                document.querySelectorAll('.tabs button').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        const tab = btn.dataset.tab;
+                        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                        document.getElementById(`panel-${tab}`).classList.add('active');
+                    });
+                });
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById('panel-lectures').innerHTML =
+                `<div class="empty-message">Error: ${err.message}</div>`;
+            }
+        }
+    </script>
+</body>
+</html>

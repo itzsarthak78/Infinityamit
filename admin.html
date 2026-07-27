@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-        /* Same theme as index */
+        /* ----- THEME: GOLDEN ORANGE / BLACK ----- */
         * {
             margin: 0;
             padding: 0;
@@ -47,7 +47,7 @@
             padding: 0 24px;
         }
 
-        /* Header */
+        /* ----- HEADER ----- */
         .header {
             background: var(--bg-primary);
             padding: 0;
@@ -88,7 +88,7 @@
             color: var(--text-primary);
         }
 
-        /* Buttons */
+        /* ----- BUTTONS ----- */
         .btn-primary {
             display: inline-flex;
             align-items: center;
@@ -160,7 +160,7 @@
             color: var(--accent);
         }
 
-        /* Admin Layout */
+        /* ----- ADMIN LAYOUT ----- */
         .admin-layout {
             padding: 40px 0 64px;
         }
@@ -331,7 +331,7 @@
             color: #e57373;
         }
 
-        /* Footer */
+        /* ----- FOOTER ----- */
         .footer {
             background: var(--bg-primary);
             color: var(--text-muted);
@@ -365,7 +365,7 @@
             text-decoration: underline;
         }
 
-        /* Password Gate */
+        /* ----- PASSWORD GATE ----- */
         .password-gate {
             display: flex;
             align-items: center;
@@ -457,6 +457,7 @@
             display: none;
         }
 
+        /* ----- RESPONSIVE ----- */
         @media (max-width: 640px) {
             .admin-card {
                 padding: 20px;
@@ -527,7 +528,19 @@
                 <h2 class="section-title">Admin <span>Panel</span></h2>
                 <p class="sub">Manage lectures and notes for your courses.</p>
 
-                <!-- Course List (only two courses) -->
+                <!-- Seed Courses -->
+                <div class="admin-card">
+                    <h3><i class="fas fa-seedling" style="color:var(--accent);"></i> Seed Default Courses</h3>
+                    <p style="color:var(--text-secondary); margin-bottom:16px;">
+                        Click the button below to create the two courses (IOQM & NSEJS) if they don't exist.
+                    </p>
+                    <button class="btn-primary" id="seedCoursesBtn">
+                        <i class="fas fa-cloud-upload-alt"></i> Seed Courses
+                    </button>
+                    <div id="seedStatus" style="margin-top:12px; color:var(--text-secondary);"></div>
+                </div>
+
+                <!-- Course List -->
                 <div class="admin-card">
                     <h3><i class="fas fa-list" style="color:var(--accent);"></i> Your Courses</h3>
                     <ul class="admin-list" id="adminCourseList">
@@ -653,7 +666,8 @@
             import('firebase/app').then(({ initializeApp }) => {
                 import('firebase/firestore').then(({ getFirestore, collection, query, orderBy, getDocs, addDoc,
                         deleteDoc, doc, serverTimestamp }) => {
-                    import('firebase/storage').then(({ getStorage, ref, uploadBytes, getDownloadURL }) => {
+                    import('firebase/storage').then(({ getStorage, ref, uploadBytes, getDownloadURL,
+                            deleteObject }) => {
 
                         const firebaseConfig = {
                             apiKey: "AIzaSyA63VMF7C_qxwqAJ7r-4LHBV-u7NY4_45o",
@@ -670,13 +684,64 @@
 
                         const adminCourseList = document.getElementById('adminCourseList');
 
-                        // ---------- Render Admin Courses ----------
+                        // ============================================================
+                        // 1. SEED COURSES
+                        // ============================================================
+                        document.getElementById('seedCoursesBtn').addEventListener('click', async () => {
+                            const statusEl = document.getElementById('seedStatus');
+                            statusEl.textContent = 'Seeding courses...';
+                            statusEl.style.color = 'var(--accent-light)';
+
+                            try {
+                                const coursesData = [{
+                                    name: 'IOQM - CRASH COURSE 2026',
+                                    bannerUrl: 'https://i.ibb.co/KCQkxpm/blob.jpg'
+                                }, {
+                                    name: 'NSEJS + SEHSS',
+                                    bannerUrl: 'https://i.ibb.co/0RvfdFVt/blob.jpg'
+                                }];
+
+                                const q = query(collection(db, 'courses'));
+                                const snap = await getDocs(q);
+                                const existingNames = [];
+                                snap.forEach(doc => existingNames.push(doc.data().name));
+
+                                let added = 0;
+                                for (const course of coursesData) {
+                                    if (!existingNames.includes(course.name)) {
+                                        await addDoc(collection(db, 'courses'), {
+                                            name: course.name,
+                                            bannerUrl: course.bannerUrl,
+                                            createdAt: serverTimestamp()
+                                        });
+                                        added++;
+                                    }
+                                }
+
+                                if (added === 0) {
+                                    statusEl.textContent = '✅ Courses already exist.';
+                                    statusEl.style.color = 'var(--text-secondary)';
+                                } else {
+                                    statusEl.textContent =
+                                        `✅ Successfully seeded ${added} course(s). Refresh the page.`;
+                                    statusEl.style.color = '#8bc34a';
+                                    await renderAdminCourses();
+                                }
+                            } catch (err) {
+                                statusEl.textContent = '❌ Error: ' + err.message;
+                                statusEl.style.color = '#e57373';
+                                console.error(err);
+                            }
+                        });
+
+                        // ============================================================
+                        // 2. RENDER ADMIN COURSES
+                        // ============================================================
                         async function renderAdminCourses() {
                             if (!adminCourseList) return;
                             try {
                                 const q = query(collection(db, 'courses'), orderBy('createdAt', 'desc'));
                                 const snap = await getDocs(q);
-                                // Filter to only the two allowed courses
                                 const allowedNames = ['IOQM - CRASH COURSE 2026', 'NSEJS + SEHSS'];
                                 const courses = [];
                                 snap.forEach(doc => {
@@ -688,7 +753,7 @@
 
                                 if (courses.length === 0) {
                                     adminCourseList.innerHTML =
-                                        `<li style="color:var(--text-muted);text-align:center;padding:20px;">No courses found. Please seed the database with the two courses.</li>`;
+                                        `<li style="color:var(--text-muted);text-align:center;padding:20px;">No courses found. Click "Seed Courses" to create them.</li>`;
                                     return;
                                 }
 
@@ -710,7 +775,6 @@
                                                 <button class="course-select-btn" data-id="${c.id}" data-name="${c.name}">
                                                     <i class="fas fa-edit"></i> Manage
                                                 </button>
-                                                <!-- No delete button for courses -->
                                             </div>
                                         </li>
                                     `;
@@ -737,7 +801,9 @@
                             }
                         }
 
-                        // ---------- Select Course ----------
+                        // ============================================================
+                        // 3. SELECT COURSE FOR MANAGEMENT
+                        // ============================================================
                         async function selectCourseForManagement(courseId, courseName) {
                             document.getElementById('lectureCourseId').value = courseId;
                             document.getElementById('noteCourseId').value = courseId;
@@ -752,15 +818,17 @@
                             await renderManageItems(courseId);
                         }
 
-                        // ---------- Render Manage Items ----------
+                        // ============================================================
+                        // 4. RENDER MANAGE ITEMS (with Delete buttons)
+                        // ============================================================
                         async function renderManageItems(courseId) {
                             const container = document.getElementById('manageItemsList');
                             if (!container) return;
                             try {
                                 const lecSnap = await getDocs(query(collection(db, 'lectures'), orderBy('order',
-                                'asc')));
+                                    'asc')));
                                 const noteSnap = await getDocs(query(collection(db, 'notes'), orderBy('order',
-                                'asc')));
+                                    'asc')));
 
                                 const lectures = [];
                                 lecSnap.forEach(d => { if (d.data().courseId === courseId) lectures.push({ id: d
@@ -805,9 +873,12 @@
                                                 <div class="info">
                                                     <span style="font-weight:600;color:var(--accent);min-width:28px;">${idx+1}</span>
                                                     <span class="name">${note.title || 'Note ' + (idx+1)}</span>
+                                                    ${note.pdfUrl ? `<span style="font-size:0.7rem;color:var(--text-muted);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">PDF</span>` : ''}
                                                 </div>
                                                 <div class="actions">
-                                                    <button class="danger note-delete-btn" data-id="${note.id}"><i class="fas fa-trash"></i></button>
+                                                    <button class="danger note-delete-btn" data-id="${note.id}" data-pdf-url="${note.pdfUrl || ''}">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
                                                 </div>
                                             </li>
                                         `;
@@ -816,6 +887,7 @@
                                 html += `</ul></div></div>`;
                                 container.innerHTML = html;
 
+                                // ----- DELETE LECTURE (Firestore only) -----
                                 document.querySelectorAll('.lecture-delete-btn').forEach(btn => {
                                     btn.addEventListener('click', async () => {
                                         if (!confirm('Delete this lecture?')) return;
@@ -823,18 +895,47 @@
                                             await deleteDoc(doc(db, 'lectures', btn.dataset.id));
                                             await renderManageItems(courseId);
                                             await renderAdminCourses();
+                                            alert('Lecture deleted.');
                                         } catch (err) { alert('Error: ' + err.message); }
                                     });
                                 });
 
+                                // ----- DELETE NOTE (Firestore + Storage) -----
                                 document.querySelectorAll('.note-delete-btn').forEach(btn => {
                                     btn.addEventListener('click', async () => {
-                                        if (!confirm('Delete this note?')) return;
+                                        const noteId = btn.dataset.id;
+                                        const pdfUrl = btn.dataset.pdfUrl;
+
+                                        if (!confirm(
+                                            'Delete this note? This will also remove the PDF file from storage.'
+                                            )) return;
+
                                         try {
-                                            await deleteDoc(doc(db, 'notes', btn.dataset.id));
+                                            // 1. Delete the PDF from Firebase Storage (if URL exists)
+                                            if (pdfUrl && pdfUrl.startsWith('http')) {
+                                                try {
+                                                    // Extract storage path from URL
+                                                    const storageRef = ref(storage, pdfUrl);
+                                                    await deleteObject(storageRef);
+                                                    console.log('PDF file deleted from storage.');
+                                                } catch (storageErr) {
+                                                    // If file doesn't exist, continue anyway
+                                                    console.warn('Storage delete error (file may not exist):',
+                                                        storageErr);
+                                                }
+                                            }
+
+                                            // 2. Delete the Firestore document
+                                            await deleteDoc(doc(db, 'notes', noteId));
+
+                                            // 3. Refresh the UI
                                             await renderManageItems(courseId);
                                             await renderAdminCourses();
-                                        } catch (err) { alert('Error: ' + err.message); }
+                                            alert('Note and PDF file deleted successfully.');
+                                        } catch (err) {
+                                            alert('Error deleting note: ' + err.message);
+                                            console.error(err);
+                                        }
                                     });
                                 });
 
@@ -843,7 +944,9 @@
                             }
                         }
 
-                        // ---------- Fetch Video from StudyBeepro ----------
+                        // ============================================================
+                        // 5. FETCH VIDEO FROM STUDYBEEPRO API
+                        // ============================================================
                         document.getElementById('fetchVideoBtn').addEventListener('click', async () => {
                             const urlInput = document.getElementById('studyBeeproUrl');
                             const statusEl = document.getElementById('fetchStatus');
@@ -908,7 +1011,9 @@
                             }
                         });
 
-                        // ---------- Add Lecture ----------
+                        // ============================================================
+                        // 6. ADD LECTURE
+                        // ============================================================
                         document.getElementById('addLectureForm').addEventListener('submit', async (e) => {
                             e.preventDefault();
                             const courseId = document.getElementById('lectureCourseId').value;
@@ -943,7 +1048,9 @@
                             }
                         });
 
-                        // ---------- Add Note (FIXED: proper PDF upload) ----------
+                        // ============================================================
+                        // 7. ADD NOTE (Fixed PDF Upload)
+                        // ============================================================
                         document.getElementById('addNoteForm').addEventListener('submit', async (e) => {
                             e.preventDefault();
                             const courseId = document.getElementById('noteCourseId').value;
@@ -955,12 +1062,10 @@
                             }
 
                             try {
-                                // Upload PDF to Firebase Storage
                                 const storageRef = ref(storage, `notes/${Date.now()}_${file.name}`);
                                 await uploadBytes(storageRef, file);
                                 const pdfUrl = await getDownloadURL(storageRef);
 
-                                // Get max order
                                 const q = query(collection(db, 'notes'), orderBy('order', 'desc'));
                                 const snap = await getDocs(q);
                                 let maxOrder = 0;
@@ -986,7 +1091,9 @@
                             }
                         });
 
-                        // ---------- Clear Selection ----------
+                        // ============================================================
+                        // 8. CLEAR SELECTION & REFRESH
+                        // ============================================================
                         document.getElementById('clearSelectionBtn').addEventListener('click', () => {
                             document.getElementById('addLectureCard').style.display = 'none';
                             document.getElementById('addNoteCard').style.display = 'none';
@@ -1002,7 +1109,9 @@
                             if (courseId) renderManageItems(courseId);
                         });
 
-                        // ---------- Initial Render ----------
+                        // ============================================================
+                        // 9. INITIAL RENDER
+                        // ============================================================
                         renderAdminCourses();
 
                         console.log('Admin panel loaded successfully.');
